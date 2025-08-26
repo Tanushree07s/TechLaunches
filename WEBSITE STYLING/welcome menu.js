@@ -103,14 +103,13 @@ function initializeMenu() {
     });
 }
 
-// Set dark mode permanently
+//  dark mode 
 function setDarkMode() {
     document.documentElement.setAttribute("data-theme", "dark");
 }
 
 
 function toggleCollapsible(header) {
-    // Toggle the active class on the h3 header (for your existing arrow rotation)
     header.classList.toggle('active');
     
     // Get the .collapsible-links element (next sibling)
@@ -142,7 +141,6 @@ function toggleCollapsible(header) {
     }
 }
 
-// Initialize all your collapsible h3 headers
 function initializeCollapsibleLinks() {
     // Select all h3 elements with class 'menu-header'
     var headers = document.querySelectorAll('h3.menu-header');
@@ -163,7 +161,6 @@ function initializeCollapsibleLinks() {
     });
 }
 
-// Reset function (same as your original but updated)
 function resetCollapsibleLinks() {
     var collapsibleContents = document.querySelectorAll('h3.menu-header + .collapsible-links');
     collapsibleContents.forEach(function(content) {
@@ -185,4 +182,5 @@ function resetCollapsibleLinks() {
 }
 
 // Load menu when page loads
+
 document.addEventListener('DOMContentLoaded', loadMenu);
