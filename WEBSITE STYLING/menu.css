@@ -254,7 +254,7 @@ h1.site-title {
   MEDIA QUERIES
 =========================== */
 /* Responsive design */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .side-menu {
         width: 280px;
     }
@@ -264,11 +264,11 @@ h1.site-title {
     }
     
     .navbar {
-        padding: 0.75rem;
+        padding: 1.5rem;
     }
     
     h1.site-title {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 
     h3,.h3-first{
