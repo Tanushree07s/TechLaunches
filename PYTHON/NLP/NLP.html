@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css" />
+    <title>
+      Natural Language Processing
+    </title>
+  </head>
+  
+  <body>
+    <main>
+      <div class="main-content">
+        <div class="resource-box">
+          <h2 class="collapsible">
+            What is Natural Language Processing (NLP) ?
+          </h2>
+          <div class="content">
+            <ul>
+              <span data-ref="ref39">
+              </span>
+              <li>
+                <strong>
+                  Natural Lanuage Processing
+                </strong>
+                is a branch of artificial intelligence that focuses on enabling machines
+                to understand, interpret, and generate human language.
+              </li>
+              <li>
+                This makes tasks like translation, sentiment analysis, and question answering
+                possible.
+              </li>
+              <li>
+                It has a wide range of applications such as powering chatbots, voice assistants,
+                search engines, email filtering, and language-based AI models (like ChatGPT).
+              </li>
+            </ul>
+          </div>
+          <h2 class="collapsible">
+            Core Tasks of NLP (Part 1)
+          </h2>
+          <div class="content">
+            <ol>
+              <span data-ref="ref40">
+              </span>
+              <li>
+                <strong>
+                  Tokenization
+                </strong>
+                : Splits a string of text into smaller meaningful units, called tokens.
+              </li>
+              <ul>
+                <li>
+                  Tokens can be words (eg: "playing"), subwords (eg: "play", "ing") or characters(eg:
+                  'p','l').
+                </li>
+                <li>
+                  Some Techniques Involved in Tokenization:
+                </li>
+                <ol type="a">
+                  <li>
+                    <strong>
+                      Whitespace & Punctuation-Based Splitting (Basic Tokenization)
+                    </strong>
+                  </li>
+                  <ul>
+                    <li>
+                      Splits text at spaces and punctuation marks.
+                    </li>
+                    <li>
+                      Simple and fast, but treats every word as separate, even if similar (e.g.,
+                      “run” vs “running”).
+                    </li>
+                    <li>
+                      Basic tokenization can’t handle rare or unknown words well because it
+                      treats each word as a separate unit, so unfamiliar words are ignored or
+                      marked as unknown instead of being broken into meaningful parts like subwords.
+                    </li>
+                  </ul>
+                  <li>
+                    <strong>
+                      Subword Tokenization: Breaks words into smaller frequent character chunks
+                      to better handle rare or unknown words.
+                    </strong>
+                  </li>
+                  <ul>
+                    <li>
+                      <strong>
+                        (Byte-Pair Encoding) – Used in GPT-2:
+                      </strong>
+                      Breaks text into subwords by merging the most frequent character pairs,
+                      allowing efficient handling of rare words by reusing common chunks like
+                      “ing” or “tion”.
+                    </li>
+                    <li>
+                      <strong>
+                        WordPiece – Used in BERT:
+                      </strong>
+                      WordPiece doesn't just merge frequent pairs — it chooses merges that help
+                      the model make better predictions, and it marks subword continuations with
+                      ## (eg:"##ing")
+                    </li>
+                    <li>
+                      <strong>
+                        SentencePiece – Used in T5:
+                      </strong>
+                      SentencePiece treats input as a raw text stream without relying on spaces,
+                      allowing it to create subwords across word boundaries—ideal for handling
+                      languages without whitespace or text with missing spaces.
+                    </li>
+                  </ul>
+                </ol>
+              </ul>
+              <li>
+                <strong>
+                  Part-of-Speech (POS) Tagging
+                </strong>
+              </li>
+              <ul>
+                <span data-ref="ref41">
+                </span>
+                <li>
+                  Assigns grammatical roles (noun, verb, adjective, etc.) to each token
+                </li>
+                <li>
+                  Useful for understanding sentence structure and word usage in context.
+                </li>
+                <li>
+                  Some Techniques Involved in Tagging
+                </li>
+                <ol type="a">
+                  <li>
+                    <strong>
+                      BiLSTM + CRF:
+                    </strong>
+                    <ul>
+                      <span data-ref="ref42">
+                      </span>
+                      <li>
+                        The Bidirectional Long Short-Term Memory network processes input in both
+                        directions to capture context from both before and after each word, which
+                        improves understanding.
+                      </li>
+                      <span data-ref="ref43">
+                      </span>
+                      <li>
+                        The Conditional Random Field model ensures that the overall sequence of
+                        tags is valid and follows correct grammar rules.
+                      </li>
+                    </ul>
+                    <li>
+                      <strong>
+                        Named Entity Recognition (NER)
+                      </strong>
+                    </li>
+                    <ul>
+                      <span data-ref="ref44">
+                      </span>
+                      <li>
+                        Identifies and classifies named entities in text into predefined categories:
+                        Person, Location, Organization etc.
+                      </li>
+                      <li>
+                        Some Techniques Used in NER:
+                      </li>
+                      <ol type="a">
+                        <li>
+                          <strong>
+                            Rule-based systems using regular expressions
+                          </strong>
+                          Rely on manually crafted linguistic rules and pattern matching to identify
+                          and label text, making them simple but less flexible for complex or ambiguous
+                          language.
+                        </li>
+                        <span data-ref="ref45">
+                        </span>
+                        <li>
+                          <strong>
+                            Fine-tuned transformers (like BERT):
+                          </strong>
+                          Use self-attention to understand full sentence context and can be easily
+                          adapted for tasks like POS tagging and NER.
+                        </li>
+                      </ol>
+                    </ul>
+                </ol>
+              </ul>
+            </ol>
+          </div>
+          <h2 class="collapsible">
+            Core Tasks of NLP (Part 2)
+          </h2>
+          <div class="content">
+            <ol start="4">
+              <span data-ref="ref46">
+              </span>
+              <li>
+                <strong>
+                  Syntactic Parsing
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  Analyzes the syntactic structure of a sentence.
+                </li>
+                <li>
+                  Builds a parse tree that shows how words relate grammatically.
+                </li>
+                <ul>
+                  <li>
+                    Constituency parsing: groups of words (phrases)
+                  </li>
+                  <li>
+                    Dependency parsing: who does what to whom (grammatical relationships)
+                  </li>
+                </ul>
+              </ul>
+              <span data-ref="ref47">
+              </span>
+              <li>
+                <strong>
+                  Sentiment Analysis
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  Detects the emotional tone behind a piece of text: Positive, negative,
+                  or neutral.
+                </li>
+                <li>
+                  Some Techniques Involved in Sentiment Analysis:
+                </li>
+                <ol type="a">
+                  <li>
+                    <strong>
+                      Fine-tuned transformer models (like BERT):
+                    </strong>
+                    They understand deep context and nuances in language, enabling highly
+                    accurate predictions.
+                  </li>
+                  <li>
+                    <strong>
+                      Deep learning models (like LSTMs and CNNs):
+                    </strong>
+                  </li>
+                  They were the to-go before transformers, learning patterns from raw text
+                  to classify sentiment effectively without any manually designed rules or
+                  features.
+                </ol>
+              </ul>
+              <span data-ref="ref48">
+              </span>
+              <li>
+                <strong>
+                  Machine Translation
+                </strong>
+                <ul>
+                  <li>
+                    Translates text from one human language to another.
+                  </li>
+                  <li>
+                    Uses methods such as Transormers that use an encoder-decoder architecture
+                    with attention to understand the meaning of the source sentence and then
+                    generate a fluent translation in the target language by focusing on the
+                    most relevant words at each step.
+                  </li>
+                </ul>
+                <span data-ref="ref49">
+                </span>
+                <li>
+                  <strong>
+                    Text Generation
+                  </strong>
+                  <ul>
+                    <li>
+                      Automatically generates coherent and fluent text.
+                    </li>
+                    <li>
+                      Uses transformers to generate text by predicting one word at a time using
+                      attention mechanisms that capture complex patterns and context from large
+                      amounts of training data
+                    </li>
+                  </ul>
+                  <span data-ref="ref50">
+                  </span>
+                  <li>
+                    <strong>
+                      Question Answering
+                    </strong>
+                  </li>
+                  <ul>
+                    <li>
+                      Extracts or generates an answer to a question from a given document, passage,
+                      or context.
+                    </li>
+                    <li>
+                      <strong>
+                        Extractive QA (BERT-styled models):
+                      </strong>
+                      Finds and returns a direct span of text from the provided passage as the
+                      answer (e.g., picking a sentence or phrase).
+                    </li>
+                    <li>
+                      <strong>
+                        Generative QA (T5, GPT):
+                      </strong>
+                      Generates the answer in natural language, not limited to exact spans from
+                      the context (e.g., rephrasing or summarizing)
+                    </li>
+                    <li>
+                      <strong>
+                        Retrieval-Augmented Generation (RAG):
+                      </strong>
+                      First retrieves relevant documents from a large database, then uses a
+                      generative model to form an answer based on that information.
+                    </li>
+                  </ul>
+            </ol>
+          </div>
+          <h2 class="collapsible">
+            Chatbots and NLP
+          </h2>
+          <div class="content">
+            <ul>
+              <li>
+                NLP makes chatbots more human-like, context-aware, multilingual, and adaptable—enabling
+                them to understand and respond naturally across a wide range of topics
+                with minimal training.
+              </li>
+              <li>
+                <strong>
+                  Types of Chatbots:
+                </strong>
+              </li>
+            </ul>
+            <ol>
+              <span data-ref="ref51">
+              </span>
+              <li>
+                <strong>
+                  Rule-Based Chatbots
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  It is a type of chatbot that uses predefined rules and decision trees
+                  (structured "if-then" logic paths that guide conversation flow) to determine
+                  how it responds to a user’s input.
+                </li>
+                <li>
+                  It follows a fixed, scripted path to handle conversations, often relying
+                  on if-else conditions, keyword matching, or pattern recognition.
+                </li>
+              </ul>
+              <li>
+                <strong>
+                  Retrieval-Based Chatbots
+                </strong>
+              </li>
+              <ul>
+                <span data-ref="ref52">
+                </span>
+                <li>
+                  The chatbot is built on a set of predefined question–answer pairs, similar
+                  to FAQs.
+                </li>
+                <li>
+                  When a user sends a message, it searches for the most similar known question.
+                </li>
+                <li>
+                  One method used for this is
+                  <strong>
+                    cosine similarity
+                  </strong>
+                  .
+                </li>
+                <span data-ref="ref53">
+                </span>
+                <li>
+                  First, both the user's message and each stored question are converted
+                  into vectors using
+                  <strong>
+                    TF-IDF (Term Frequency-Inverse Document Frequency):
+                  </strong>
+                </li>
+                <ul>
+                  <li>
+                    TF-IDF counts word frequency, reduces the impact of common words, and
+                    emphasizes rare, informative ones.
+                  </li>
+                  <li>
+                    It outputs vectors of weighted decimal values based on word importance.
+                  </li>
+                </ul>
+                <span data-ref="ref54">
+                </span>
+                <li>
+                  Cosine similarity then compares the angle between these vectors:
+                </li>
+                <ul>
+                  <li>
+                    A smaller angle (more similar direction) means higher similarity.
+                  </li>
+                  <li>
+                    A larger angle (different direction) means lower similarity.
+                  </li>
+                </ul>
+                <li>
+                  The chatbot returns the answer linked to the most similar question.
+                </li>
+              </ul>
+              <span data-ref="ref55">
+              </span>
+              <li>
+                <strong>
+                  Generative Chatbots (LLM-Based Chatbots)
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  Use Large Language Models (LLMs) like GPT, LLaMA, Claude, etc.
+                </li>
+                <li>
+                  Generate responses word-by-word based on input and context.
+                </li>
+                <li>
+                  Trained on massive datasets (books, code, dialogue, etc.)
+                </li>
+              </ul>
+              <span data-ref="ref56">
+              </span>
+              <li>
+                <strong>
+                  Hybrid Chatbots
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  Combine rule-based + generative/retrieval-based approaches.
+                </li>
+                <li>
+                  These chatbots follow a decision logic like this:
+                </li>
+                <ul>
+                  <li>
+                    Check if the query matches a known intent or keyword. If it does, they
+                    respond with a predefined (rule-based) message.
+                  </li>
+                  <li>
+                    If the query is unfamiliar or ambiguous, pass it to a generative LLM like
+                    GPT.
+                  </li>
+                </ul>
+              </ul>
+            </ol>
+          </div>
+          <div class="nocollapse-content">
+            <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">
+              References:
+            </h3>
+            <ol id="references">
+            </ol>
+          </div>
+        </div>
+    </main>
+    <script src="../../WEBSITE STYLING/script.js">
+    </script>
+    <script src="../../WEBSITE STYLING/menu.js">
+    </script>
+    <script src="../../WEBSITE STYLING/citations.js">
+    </script>
+  </body>
+
+</html>

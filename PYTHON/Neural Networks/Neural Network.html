@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    />
+    <title>
+      Neural Networks
+    </title>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css" />
+  </head>
+  
+  <body>
+    <main>
+      <div class="main-content">
+        <h2 class="collapsible">
+          What is a Neural Network?
+        </h2>
+        <div class="content">
+          <ul>
+            <span data-ref="ref1">
+            </span>
+            <li>
+              A neural network is a
+              <a href="https://www.ibm.com/think/topics/machine-learning">
+                machine learning</a> 
+                
+                model inspired by how the human brain works.
+            </li>
+            <li>
+              It learns patterns from data and uses those patterns to make decisions
+              or predictions.
+            </li>
+          </ul>
+        </div>
+        <h2 class="collapsible">
+          Structure of a Neural Network
+        </h2>
+        <div class="content">
+          <ul>
+            <span data-ref="ref1">
+            </span>
+            <li>
+              A neural network is made up of multiple layers:
+              <ol type="a">
+                <li>
+                  Input Layer: Receives raw data (e.g., pixel values from an image).
+                </li>
+                <li>
+                  Hidden Layers: Process data by finding patterns and relationships.
+                </li>
+                <li>
+                  Output Layer: Produces the final prediction or decision.
+                </li>
+              </ol>
+            </li>
+            <br/>
+            <li>
+              Each layer consists of artificial neurons/ nodes that carry out computations, influencing the overall predictions made by the network.
+            </li>
+            <br/>
+            <li>
+              Each neuron has:
+              <ol type="a">
+                <li>
+                  Weights - Numbers that affect how strong each input is by acting in the
+                  connections between layers.
+                </li>
+                <li>
+                  Bias - A number added to adjust the calculated result of a neuron.
+                </li>
+                <li>
+                  Activation Function - Decides whether and how a neuron’s calculated output
+                  passes to the next layer.
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+        <h2 class="collapsible">
+          Building a Neural Network
+        </h2>
+        <div class="content">
+          <ol>
+            <span data-ref="ref2">
+            </span>
+            <li>
+              Create A Dataset
+              <ul>
+                <li>
+                  Use a dataset where each input has a known target (the correct answer).
+                </li>
+              </ul>
+            </li>
+            <br/>
+            <li>
+              Design the Network
+              <ul>
+                <li>
+                  Decide:
+                </li>
+                <li>
+                  Number of layers
+                </li>
+                <li>
+                  Number of neurons per layer
+                </li>
+                <li>
+                  What activation functions to use
+                </li>
+              </ul>
+            </li>
+            <br/>
+            <li>
+              Initialize Weights and Biases
+              <ul>
+                <li>
+                  All weights start as random values since the network doesn't yet know
+                  what patterns to look for.
+                </li>
+                <li>
+                  Biases are set to zero or small values at the start. The model will adjust
+                  them as it learns.
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+        <h2 class="collapsible">
+          Training a Neural Network
+        </h2>
+        <div class="content">
+          <ul>
+            <li>
+              The training process of a neural network can be broken down into 4 steps:
+            </li>
+          </ul>
+          <ol>
+            <span data-ref="ref3">
+            </span>
+            <li class="dataProcessing">
+              <strong>
+                Forward Pass:
+              </strong>
+              This is where input data is passed through the layers of a network to
+              make a prediction.
+              <ol type="a">
+                <li>
+                  Input Layer
+                  <ul>
+                    <li>
+                      The data is processed and received by this layer as a numeric vector.
+                    </li>
+                    <li>
+                      No calculations are performed here (absence of weights and biases).
+                    </li>
+                  </ul>
+                </li>
+                <br/>
+                <li>
+                  Hidden Layers
+                  <ul>
+                    <li>
+                      Each neuron:
+                      <ul>
+                        <li>
+                          Performs a dot product between the
+                          <span class="tooltip">
+                            <strong class="tooltipstrong">
+                              input vector
+                            </strong>
+                            <span class="tooltiptext">
+                              Each component of the input vector has an associated weight component that affects how
+                              strong its effect is on the output.
+                            </span>
+                          </span>
+                          and weight vector.
+                        </li>
+                        <li>
+                          Adds a
+                          <span class="tooltip">
+                            <strong class="tooltipstrong">
+                              bias
+                            </strong>
+                            <span class="tooltiptext">
+                              If the output of a neuron is 0, it does not pass to the next layer. A
+                              bias is a value added to the output that helps a neuron activate more easily
+                              or less easily.
+                            </span>
+                          </span>
+                          to the computed result.
+                        </li>
+                        <li>
+                          Applies an activation function to the result. The activation function
+                          decides how strongly a neuron’s output should be passed through the next
+                          layer. A few activation functions include: <a href="https://www.geeksforgeeks.org/deep-learning/relu-activation-function-in-deep-learning/">Rectified Linear Unit</a>, <a href="https://www.geeksforgeeks.org/machine-learning/derivative-of-the-sigmoid-function/">Sigmoid</a>, and
+                          <a href="https://www.geeksforgeeks.org/deep-learning/the-role-of-softmax-in-neural-networks-detailed-explanation-and-applications/">Softmax</a>.
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <br/>
+                <li>
+                  Output Layer: Provides the prediction of the network
+                  <ul>
+                    <li>
+                      This prediction is then passed into a
+                      <span class="tooltip">
+                        <strong class="tooltipstrong">
+                          loss function
+                        </strong>
+                        .
+                        <span class="tooltiptext">
+                          A loss function tells the neural network how wrong its predictions are.
+                          It compares the predicted output to the true (correct) value, and gives
+                          a number representing the error.
+                        </span>
+                      </span>
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+            </li>
+            <br/>
+            <li>
+              <strong>
+                Backward Pass:
+              </strong>
+              The goal is to find out how much each weight and bias contributes to the
+              final error, and update them to reduce it. This is how the network learns
+              from its mistakes.
+              <ol type="a">
+                <li>
+                  Starting from the output layer, the neural network passes the error backward
+                  through each hidden layer.
+                </li>
+                <li>
+                  Each layer calculates how much it contributed to the final error (gradient)
+                  using the next layer’s error, the weights, and the activation function’s
+                  derivative. This helps determine the necessary adjustments to weights and
+                  biases for learning.
+                </li>
+              </ol>
+            </li>
+            <br/>
+            <li>
+              <strong>
+                Updating weights and biases using Gradient Descent
+              </strong>
+              <ol type="a">
+                <li>
+                  Each weight/bias is adjusted:<code> new value = current value - (learning rate x gradient)</code>
+                </li>
+                <li>
+                  This step reduces the error and helps the network make better predictions.
+                </li>
+                <li>
+                  The learning rate controls how big the adjustments are.
+                </li>
+              </ol>
+            </li>
+            <br/>
+            <li>
+              <strong>
+                This process is repeated multiple times to improve the network's predictions.
+              </strong>
+              <ul>
+                <li>
+                  Epoch: One complete pass through the entire training dataset by the neural
+                  network.
+                </li>
+                <li>
+                  The number of training epochs done is also important.
+                </li>
+                <li>
+                  Too few won’t help the model learn patterns and too many will make the
+                  model memorize the training dataset rather than
+                  <span class="tooltip">
+                    <strong class="tooltipstrong">
+                      generalizing
+                    </strong>
+                    .
+                    <span class="tooltiptext">
+                      Learn patterns from training data and apply them correctly to new, unseen
+                      data.
+                    </span>
+                  </span>
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+        <h2 class="collapsible">
+          Python in Neural Networks
+        </h2>
+        <div class="content">
+          <ul>
+            <span data-ref="ref4">
+            </span>
+            <li>
+              Python is widely preferred for coding neural networks because of its simplicity,
+              readability, and powerful libraries that simplify complex tasks like matrix
+              operations, gradient computation, and model training.
+            </li>
+          </ul>
+          <ul>
+            <span data-ref="ref5">
+            </span>
+            <li>
+              The
+              <strong>
+                NumPy
+              </strong>
+              library provides:
+            </li>
+            <ul>
+              <li>
+                Efficient handling of arrays (used for inputs, weights, outputs, and gradients).
+              </li>
+              <li>
+                Fast vector and matrix operations (used in the forward pass and backpropagation).
+              </li>
+              <li>
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    Element-wise functions
+                  </strong>
+                  <span class="tooltiptext">
+                    Element-wise functions are operations applied individually to each element
+                    in an array or matrix, rather than operating on the entire array at once.
+                  </span>
+                </span>
+                (e.g., activation functions like sigmoid).
+              </li>
+              <li>
+                In neural networks, neurons’ outputs are usually stored in arrays. NumPy
+                allows you to apply activation functions like sigmoid() or ReLU to each
+                element of a vector or matrix efficiently—without using Python loops.
+              </li>
+            </ul>
+            <br/>
+            <li>
+              However, when using only NumPy to create and train neural networks, you
+              must:
+            </li>
+            <ul>
+              <li>
+                Manually create weights and biases.
+              </li>
+              <li>
+                Write the mathematical logic for dot products and matrix operations.
+              </li>
+              <li>
+                Define activation functions (such as ReLU, Sigmoid).
+              </li>
+              <li>
+                Implement backpropagation step-by-step.
+              </li>
+              <li>
+                Handle weight updates manually.
+              </li>
+            </ul>
+            <br/>
+            <span data-ref="ref6">
+            </span>
+            <span data-ref="ref7">
+            </span>
+            <li>
+              To build larger neural networks more efficiently, it is crucial to use
+              libraries like
+              <strong>
+                PyTorch
+              </strong>
+              or
+              <strong>
+                TensorFlow
+              </strong>
+              , which offer:
+            </li>
+            <ul>
+              <li>
+                Automatic creation and management of weights and biases
+              </li>
+              <li>
+                Built-in layers and activation functions
+              </li>
+              <li>
+                Internal handling of forward and backward passes
+              </li>
+              <li>
+                Automatic computation of gradients during the backward pass
+              </li>
+              <li>
+                Optimizer classes (such as SGD and Adam) that use gradients to update
+                weights and biases
+              </li>
+            </ul>
+        </div>
+        <div class="nocollapse-content">
+          <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">
+            References:
+          </h3>
+          <ol id="references">
+          </ol>
+        </div>
+      </div>
+    </main>
+    <script src="../../WEBSITE STYLING/script.js">
+    </script>
+    <script src="../../WEBSITE STYLING/menu.js">
+    </script>
+    <script src="../../WEBSITE STYLING/citations.js">
+    </script>
+  </body>
+
+</html>

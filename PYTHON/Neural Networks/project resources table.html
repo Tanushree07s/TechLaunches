@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NumPy Functions</title>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/project resources table.css"/>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/style.css"/>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css"/>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css"/>
+
+</head>
+<body>
+  
+  <main>
+  <div class="main-content">
+
+  <div class="styled-box">
+    <table class="func-table">
+      <span data-ref="ref9"></span>
+      <tr class="table-headers">
+        <th>Function Name, Syntax</th>
+        <th>Usage</th>
+        <th>Example</th>
+        <th>Usage in Project</th>
+      </tr>
+
+      <tr>
+        <td>
+          <ul>
+            <li><code>np.array(object)</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Creates a NumPy array (ndarray) from a list, tuple, or other array-like structure.</li>
+            <li>Supports vectorized operations (no need to loop over the elements of an ndarray to perform calculations on them.).</li>
+            <li>Includes methods for matrix calculations.</li>
+            <li>Used instead of Python lists for efficiency.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><code>np.array([[1, 2], [3, 4]])</code></li>
+            <li>Creates a 2×2 NumPy array.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Creates 2D input/output matrices for training.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <ul>
+            <li><code>np.exp(array)</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Computes <code>e^(array)</code> element-wise.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><code>np.exp(np.array([0, 1]))<br>Output: [1.         2.71828183]</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Used in sigmoid activation.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <ul>
+            <li><code>np.random.rand(rows, cols)</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Creates a matrix of shape <code>(rows, columns)</code> with random values ∈ [0, 1).</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><code>np.random.rand(2, 3)</code></li>
+            <li>Generates 2×3 matrix of random floats.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Used to initialize weights randomly.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <ul>
+            <li><code>np.zeros((rows, cols))</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Creates a matrix filled with zeros.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><code>np.zeros((2, 3))<br>Output: [[0. 0. 0.]<br> [0. 0. 0.]]</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Initializes biases to 0.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <ul>
+            <li><code>np.dot(A, B)</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Performs dot product between 2 arrays.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><code>A = np.array([[1, 2]])<br>B = np.array([[3], [4]])<br>np.dot(A, B)<br>Output: [[11]]</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Used to compute forward pass values.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <ul>
+            <li><code>np.sum(array, axis, keepdims=True)</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Sums along the specified axis (axis=0 for vertical axis, axis=1 for horizontal axis).</li>
+            <li><code>keepdims=True</code> preserves the original number of dimensions in the result.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><code>a = np.array([[1, 2], [3, 4]])<br>np.sum(a, axis=0, keepdims=True)<br>Output: [[4 6]]</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Used to update biases during backpropagation.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <ul>
+            <li><code>np.mean(x)</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Computes the average of elements.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><code>np.mean([2, 4, 6])<br>Output: 4.0</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Used to compute Mean Squared Error (MSE) loss.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <ul>
+            <li><code>np.square(x)</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Returns element-wise squares.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><code>np.square(np.array([2, -3]))<br>Output: [4 9]</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Used to compute squared error in loss.</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <ul>
+            <li><code>np.round(x, decimals=n)</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Rounds each value in the array to n decimal places.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><code>np.round([1.234, 5.678], 2)<br>Output: [1.23, 5.68]</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Used when printing predictions.</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+      <div class="nocollapse-content">
+        <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">References:</h3>
+        <ol id="references"></ol>
+    </div>
+</div>
+</main>
+
+  <script src="../../WEBSITE STYLING/script.js"></script>
+  <script src="../../WEBSITE STYLING/menu.js"></script>
+  <script src="../../WEBSITE STYLING/citations.js"></script>
+
+</body>
+</html>

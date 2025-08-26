@@ -1,0 +1,281 @@
+
+/* ===========================
+   THEME COLORS
+=========================== */
+
+
+ [data-theme="dark"] {
+    --sidebar-bg: #141d33;
+    --sidebar-text: white;
+    --sidebar-hover: #6787b5;
+    --h3-bg:#3966a5;
+    --h3-hoverbg:#698fc4;
+
+ }
+
+
+
+/* ===========================
+   NAV BAR
+=========================== */
+
+        /* Header with menu button */
+        .navbar {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: left 0.3s ease;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+            .navbar h1 {
+            font-size: 1.5rem;
+        }
+
+
+/* ===========================
+   THEME BUTTON
+=========================== */
+
+
+        /* Theme toggle button */
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--header-text);
+            color: var(--header-text);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        #theme-toggle:hover {
+            background-color: rgba(255,255,255,0.1);
+
+        }
+
+
+/* ===========================
+  MAIN CONTENT
+=========================== */
+.main-content{
+  margin-top:140px;
+}
+
+
+/* ===========================
+  SIDE MENU
+=========================== */ 
+/*Menu button*/     
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.menu-toggle:hover {
+    opacity: 0.8;
+}
+
+h1.site-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Side menu styles */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--sidebar-bg);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu a {
+    display: block;
+    margin:0;
+    padding: 1rem 2rem;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-size:larger;
+    border-bottom: 1px solid var(--sidebar-text);
+    transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+    background-color: var(--sidebar-hover);
+}
+
+.side-menu a:first-of-type,.side-menu h3 {
+    margin-top: 3rem; /* Space for close button */
+}
+
+/* ===========================
+  CLOSE BUTTON
+=========================== */ 
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: white;
+}
+
+
+
+/* ===========================
+  COLLAPSIBLE LINKS h3s
+=========================== */    
+
+.side-menu .h3-first,.side-menu h3{
+  display:flex;
+  cursor: pointer;
+  margin-top: 40px;
+  margin-bottom:0px;
+  padding: 1rem;
+  background:var(--h3-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--header-text);
+  border-radius:5px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+
+    
+}
+.side-menu .h3-first{
+    margin-top:70px;
+}
+.side-menu h3:last-of-type {/*select the last h3 inside the parent*/
+    margin-bottom:10px;
+}
+
+
+/* =================================================
+  COLLAPSIBLE LINKS : HIDDEN CONTENT, ARROWS, HOVER
+==================================================== */  
+/* Arrow icon for collapsible */
+.side-menu h3::before {
+  content: '\25B6'; /* Right arrow */
+  font-size: medium;
+  margin-right: 20px;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center center; /* Rotate around its own center */
+  transform: rotate(0deg); /* Starting position */
+
+}
+
+.side-menu h3.active::before {
+  transform: rotate(90deg); /* Rotates 90 degrees to point down */
+}
+
+.side-menu h3:hover{
+    background-color:var(--h3-hoverbg);
+}
+.collapsible-links a:first-child {
+  margin-top: 0;   /* remove the top child top margin gap */
+}
+
+.collapsible-links a:last-child {/*select the last child inside the parent element*/
+  margin-bottom: 10px;   /* remove the top child top margin gap */
+}
+
+/* ==================================
+  COLLAPSIBLE LINKS ANIMATIONS
+===================================== */  
+.collapsible-links{
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.collapsible-links.expanded {
+    /* Height will be set dynamically via JavaScript */
+}
+
+/* ===========================
+  OVERLAY STYLES
+=========================== */  
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+#overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===========================
+  MEDIA QUERIES
+=========================== */
+/* Responsive design */
+@media (max-width: 600px) {
+    .side-menu {
+        width: 280px;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .navbar {
+        padding: 0.75rem;
+    }
+    
+    h1.site-title {
+        font-size: 1.2rem;
+    }
+
+    h3,.h3-first{
+        font-size:16px;
+    }
+    .side-menu a {
+        font-size:15px;
+    }
+}
+

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Time!</title>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css"/>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css"/>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css"/>
+</head>
+<body>
+
+    <main>
+    <div class="main-content">
+
+    <h2 class="collapsible">Instructions:</h2>
+    <div class="content">
+        <ul>
+            <span data-ref="ref8"></span>
+            <li>You are going to create and train your very own neural network!</li>
+            <li><strong>Goal: Train a neural network to learn the 2’s table. </strong></li>
+            <li>The network will be created using the NumPy library and will consist of:</li>
+            <ul>
+                <li>An input layer with 1 neuron</li>
+                <li>A hidden layer with 2 neurons</li>
+                <li>An output layer with 1 neuron</li>
+                <li>A sigmoid activation function </li>
+                <li>A learning rate of 0.5 and a 1000 epochs</li>
+            </ul>
+            <li>The code for the activation function used by the network has been given to you.</li>
+            <li>Refer to <a href="./project resources.html"><strong>Project Resources</strong></a> for information related to the NumPy concepts and calculations required to write your code .</li>
+        </ul>
+        
+    </div>
+
+  <h2 class="collapsible">Project Code Breakdown:</h2>
+   <div class="content">
+    <ul>
+       <li>Go ahead and copy the guidelines below into your IDE's workspace — let's get started!</li>
+    </ul>
+    <pre><code>
+    import numpy as np
+    #----- ACTIVATION FUNCTION AND ACTIVATION FUNCTION DERIVATIVE -----
+
+
+    def sigmoid(x):
+        return 1 / (1 + np.exp(-x))
+
+    def sigmoid_derivative(output):
+        return output * (1 - output)
+
+
+    #  ----- START WRITING YOUR CODE BELOW THIS ----- 
+
+
+    #  TO DO: Provide input and target data (scaled between 0 and 1)
+
+    #  TO DO: Initialize weights from input to hidden layer and hidden to output layer using 
+    #         random values.
+    #       : Subtract 0.5 from initialized weights (to center weights around 0, improve 
+    #         learning performance of the network).
+
+    #  TO DO: Initialize biases in the hidden and output layer to 0.
+
+    #  TO DO: Set learning rate and number of epochs.
+
+    #  TO DO: Loop through epoch values to repeat training process.
+
+
+    #  ----- FORWARD PASS -----
+
+    #  TO DO: Calculate: Hidden layer input, output and final input, output.
+
+
+    #  ----- ERROR COMPUTATION -----
+
+
+    #  ----- BACKPROPAGATION -----
+
+    #  TO DO: Calculate output layer gradient
+
+    #  TO DO: Calculate hidden layer gradient
+
+
+    #  ----- UPDATE WEIGHTS & BIASES -----
+
+    #  TO DO: Update weights (Hidden Layer → Output Layer)
+
+    #  TO DO: Update output layer biases
+
+    #  TO DO: Update weights (Input Layer → Hidden Layer)
+
+    #  TO DO: Update hidden layer biases
+
+
+    #  ----- MONITOR TRAINING ----- 
+
+    #  TO DO: Print the model's scaled outputs (from sigmoid function) and the network's 
+            predicted values of 2's table (by multiplying scaled values by 10)
+
+        </code></pre>
+    </div>
+
+    
+<h2 class="collapsible">Solution:</h2>
+<div class="content">
+    <pre><code>
+    import numpy as np
+    # Activation and its derivative
+    def sigmoid(x):
+        return 1 / (1 + np.exp(-x))
+
+    def sigmoid_derivative(output):
+        return output * (1 - output)
+
+    # Input: 1 to 5 (scaled between 0 and 1)
+    inputs = np.array([[1], [2], [3], [4], [5]])
+    inputs = inputs / 5.0  # Normalize to range 0–1
+
+    # Target: 2, 4, 6, 8, 10 (scaled)
+    targets = np.array([[2], [4], [6], [8], [10]])
+    targets = targets / 10.0  # Normalize to 0–1
+
+    # Initialize weights and biases
+    weights_input_hidden = np.random.rand(1, 2) - 0.5  # 1 input to 2 hidden neurons
+    weights_hidden_output = np.random.rand(2, 1) - 0.5  # 2 hidden neurons to 1 output
+    bias_hidden = np.zeros((1, 2))
+    bias_output = np.zeros((1, 1))
+
+    # Training loop
+    learning_rate = 0.5
+    epochs = 10000
+
+    for epoch in range(epochs):
+        # Forward pass
+        hidden_input = np.dot(inputs, weights_input_hidden) + bias_hidden
+        hidden_output = sigmoid(hidden_input)
+
+        final_input = np.dot(hidden_output, weights_hidden_output) + bias_output
+        output = sigmoid(final_input)
+
+        # Error
+        error = targets - output
+
+        # Backward pass
+        d_output = error * sigmoid_derivative(output)
+        d_hidden = d_output.dot(weights_hidden_output.T) * sigmoid_derivative(hidden_output)
+
+        # Update weights and biases
+        weights_hidden_output += hidden_output.T.dot(d_output) * learning_rate
+        bias_output += np.sum(d_output, axis=0, keepdims=True) * learning_rate
+
+        weights_input_hidden += inputs.T.dot(d_hidden) * learning_rate
+        bias_hidden += np.sum(d_hidden, axis=0, keepdims=True) * learning_rate
+
+        # Print loss occasionally
+        if epoch % 2000 == 0:
+            loss = np.mean(np.square(error))
+            print(f"Epoch {epoch}, Loss: {loss:.4f}")
+
+    # Final predictions
+    print("\nFinal predictions (scaled):")
+    print(np.round(output, 2))
+
+    # Convert predictions back to real values
+    predicted_real = output * 10
+    print("\nPredicted 2's table values:")
+    print(np.round(predicted_real, 2))
+    </code></pre>
+</div>
+    <div class="nocollapse-content">
+        <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">References:</h3>
+        <ol id="references"></ol>
+    </div>
+    </div>
+    </main>
+
+
+  <script src="../../WEBSITE STYLING/script.js"></script>
+  <script src="../../WEBSITE STYLING/menu.js"></script>
+  <script src="../../WEBSITE STYLING/citations.js"></script>
+
+</body>
+</html>

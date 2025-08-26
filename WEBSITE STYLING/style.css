@@ -1,0 +1,235 @@
+       
+/* =======================================
+  DARK THEME COLORS
+========================================== */
+
+
+        [data-theme="dark"] {
+            --bg-color: #141d33;
+            --text-color: #dce8f6;
+
+            --header-bg: #030f22;
+            --header-text: white;
+
+            --sidebar-bg: #1E293B;
+            --sidebar-text: #e0e0e0;
+            --sidebar-hover: #5575a3;
+
+            --h2-boxes:#484797;
+            --h2-hover: #4f14a7;
+
+            --content-bg: #212664;
+            --strong-color:rgb(180, 251, 240);
+            --smallbox-bg-color: #544482;
+            --shadow: rgba(0,0,0,0.3);
+
+        }
+
+/* ===========================
+   BODY
+=========================== */
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    li{
+      margin-top:10px;
+      margin-bottom:px;
+    }
+
+
+/* ====================================
+ BOXES
+======================================= */
+
+
+.nocollapse-content{
+  background: var(--content-bg);
+  color: var(--text-color);
+  
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.content {
+  /* Hidden by default; toggled via JS */
+  display:none;
+  max-height:0;
+  transition: max-height 0.4s ease;
+  background-color: var(--content-bg);
+  color: var(--text-color);
+
+  
+}
+
+.content, .nocollapse-content, .small-box{
+  border-radius: 10px;
+  margin: 50px 50px 0px 50px;
+  padding: 15px 20px 15px 0px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  overflow: auto;             /* Horizontal scroll if content overflows */
+}
+
+.small-box{
+  background-color: var(--smallbox-bg-color);
+  color: var(--text-color);
+  padding: 15px 20px 15px 15px;
+
+}
+
+
+body a{
+  color: var(--strong-color);
+  font-size:16px;
+}
+
+/* ===========================
+  COLLAPSIBLE CONTENT
+=========================== */
+
+/* h2 content*/
+
+.collapsible{
+  display:flex;
+  align-items: center; /* <-- aligns logo and text vertically */
+  color: var(--header-text);
+  padding: 15px;
+  cursor: pointer;
+  margin: 50px 50px 35px 50px;
+
+  background-color: var(--h2-boxes);
+  backdrop-filter: blur(10px);
+
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+  .collapsible:hover {
+      transform: translateY(-3px) scale(1.0);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      background: var(--h2-hover);
+  }
+
+/* Arrow icon for collapsible */
+.collapsible::before {
+  content: '\25B6'; /* Right arrow */
+  font-size: medium;
+  margin-right: 35px;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center center; /* Rotate around its own center */
+  transform: rotate(0deg); /* Starting position */
+
+}
+
+.collapsible.active::before {
+  transform: rotate(90deg); /* Rotates 90 degrees to point down */
+}
+
+
+
+/* TOOLTIP BOXES  */
+
+.tooltip {
+      display: inline-block;
+      cursor: help;
+    }
+
+    .tooltiptext{
+      display:none;
+    }
+   
+
+    .tooltipstrong {
+      color: #d9534f;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  
+
+.floating-tooltip {
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.4;
+    pointer-events: none;
+    z-index: 9999;
+    max-width: 300px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.tooltip:hover + .floating-tooltip,
+.floating-tooltip {
+    opacity: 1;
+}
+
+/* ====================================================
+  MEDIA QUERIES FOR COLLAPSIBLE, NON-COLLAPSIBLE CONTENT
+======================================================= */
+
+@media (max-width: 600px) {
+
+    /* Headings scale down */
+   h1, h2 {
+    font-size: 18px;
+  }
+  .collapsible,.nocollapse-content  {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .content{
+    font-size: 14px;             /* Slightly smaller text on small screens */
+    padding: 15px;
+    font-style: "Segoe UI", Arial, Helvetica, sans-serif;
+  }
+
+  body a{
+    font-size:14px;
+  }
+   /* Arrow smaller and repositioned */
+  .collapsible::before {
+    font-size: 14px;
+  }
+    .tooltiptext {
+    max-width: 95vw;           /* allow a little more width */
+    max-height: 200px;         /* reduce max height */
+    font-size: 13px;           /* slightly smaller text */
+    padding: 6px;              /* smaller padding */
+}
+}
+

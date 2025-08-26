@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css" />
+    <title>
+      Large Language Models
+    </title>
+  </head>
+  
+  <body>
+    <main>
+      <div class="main-content">
+        <h2 class="collapsible">
+          What Is a Large Language Model ?
+        </h2>
+        <div class="content">
+          <ul>
+            <span data-ref="ref18">
+            </span>
+            <li>
+              A Large Language Model (LLM) is a type of artificial intelligence model
+              trained to understand and generate human-like language.
+            </li>
+            <li>
+              These models are built using <a href="https://www.ibm.com/think/topics/deep-learning">deep learning</a>, especially a neural network
+              architecture called <strong>Transformer</strong>, and are trained on massive datasets
+              of text from books, websites, articles, code, etc.
+            </li>
+          </ul>
+        </div>
+        <h2 class="collapsible">
+          Transformers in LLM and the Principle of Self-Attention
+        </h2>
+        <div class="content">
+          <ul>
+            <li>
+              LLMs are built using a neural network architecture called Transformer
+              introduced by Google in 2017 in the paper
+              <a href="https://research.google/pubs/attention-is-all-you-need/">
+                "Attention is All You Need"
+              </a>
+              .
+            </li>
+            <li>
+              Transformers changed how machines process language by allowing the input
+              data to be processed all at once, parallely rather than sequentially.
+            </li>
+            <li>
+              Using a mechanism called
+              <strong>
+                self-attention
+              </strong>
+              , it allowed models to look at all parts of the sentence at once and determine
+              which words are important for understanding others.
+            </li>
+            <li>
+              <strong>
+                Transformer Architecture and The Principle of Self- Attention:
+              </strong>
+            </li>
+            <br/>
+            <span data-ref="ref19">
+            </span>
+            <li>
+              A Transformer architecture can be configured in three primary ways, depending
+              on the task:
+            </li>
+            <ol type="a">
+              <li>
+                <strong>
+                  Encoder-only
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  <strong>
+                    Examples:
+                  </strong>
+                  <a href="https://en.wikipedia.org/wiki/BERT_(language_model)">
+                    BERT
+                  </a>
+                </li>
+                <li>
+                  <strong>
+                    Purpose:
+                  </strong>
+                  Used for tasks like <span class="tooltip"><strong class="tooltipstrong">classification</strong><span class="tooltiptext">The model categorizes the input text into one or more predefined labels, such as sentiment (positive/negative), topic (e.g., finance, sports), or spam detection.</span></span>, sentence similarity.
+                </li>
+              </ul>
+              <li>
+                <strong>
+                  Decoder-only
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  <strong>
+                    Examples:
+                  </strong>
+                  <a href="https://en.wikipedia.org/wiki/Generative_pre-trained_transformer">
+                    GPT
+                  </a>
+                </li>
+                <li>
+                  <strong>
+                    Purpose:
+                  </strong>
+                  Used for generation tasks (e.g., text generation, code generation).
+                </li>
+              </ul>
+              <li>
+                <strong>
+                  Encoder-Decoder
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  <strong>
+                    Examples:
+                  </strong>
+                  <a href="https://en.wikipedia.org/wiki/T5_(language_model)">
+                    T5,
+                  </a>
+                  <a href="https://huggingface.co/docs/transformers/en/model_doc/bart">
+                    BART
+                  </a>
+                  , original Transformer (from the "Attention is All You Need" paper)
+                </li>
+                <li>
+                  <strong>
+                    Purpose:
+                  </strong>
+                  Tasks like translation, summarization, question-answering
+                </li>
+                <li>
+                  <strong>
+                    Architecture:
+                  </strong>
+                </li>
+                <ul>
+                  <li>
+                    The encoder processes the input sequence.
+                  </li>
+                  <li>
+                    The decoder generates the output sequence while attending to encoder outputs
+                    via cross-attention (will be covered below).
+                  </li>
+                </ul>
+              </ul>
+            </ol>
+            <br/>
+            <span data-ref="ref20">
+            </span>
+            <li>
+              <strong>
+                Steps Involved in Self- Attention Mechanism
+              </strong>
+            </li>
+            <ol>
+              <li>
+                Before the mechanism begins, each word in input is turned into a vector
+                (embedding).
+              </li>
+              <li>
+                Each word embedding is
+                <strong>
+                  multiplied by learned weight matrices (projected)
+                </strong>
+                to produce 3 vectors : Query, Key, Value
+              </li>
+              <ul>
+                <li>
+                  Query (Q): Represents the information a word is seeking from others in
+                  the sequence. It is used to determine how relevant other words are to the
+                  current word during attention computation.
+                </li>
+                <li>
+                  Key (K): Encodes the characteristics or features a word has that may be
+                  useful to other words. It helps determine how strongly the word should
+                  be attended to when queried by others.
+                </li>
+                <li>
+                  Value (V): Holds the actual content of the word. If a word is found to
+                  be important (via Query–Key match), its Value is included in the output.
+                </li>
+              </ul>
+              <li>
+                Attention scores are calculated
+              </li>
+              <ul>
+                <li>
+                  Attention scores tell the model how important each other word is when
+                  processing a particular one.
+                </li>
+                <li>
+                  To calculate a score, dot products between between the query of a word
+                  and the keys of all other words in the sentence are computed. The scores
+                  are scaled down to prevent extremely large values, which could make training
+                  unstable or harder for the model to learn properly.
+                </li>
+              </ul>
+              <li>
+                Attention scores -> Attention Weights
+              </li>
+              <ul>
+                <li>
+                  The scaled scores are passed through a softmax function, which turns them
+                  into attention weights that add up to 1.
+                </li>
+                <li>
+                  This helps the model figure out how much attention to give each word when
+                  interpreting the meaning of a specific word.
+                </li>
+              </ul>
+              <li>
+                Combine all computed information
+              </li>
+              <ul>
+                <li>
+                  Each word’s value is multiplied by its attention weight.
+                </li>
+                <li>
+                  Then, all the weighted values are added together to create a new, combined
+                  vector for the current word — one that captures its meaning in the context
+                  of the entire sentence.
+                </li>
+              </ul>
+              <li>
+                This process is repeated for all words in the input data.
+              </li>
+            </ol>
+          </ul>
+        </div>
+        <h2 class="collapsible">
+          Encoder Layer of a Transformer
+        </h2>
+        <div class="content">
+          <ol>
+            <span data-ref="ref21">
+            </span>
+            <li>
+              <strong>
+                Raw Input Data → Tokens
+              </strong>
+              <ul>
+                <li>
+                  The input text is broken into
+                  <strong>
+                    tokens
+                  </strong>
+                  (words, subwords, or characters).
+                </li>
+                <li>
+                  Each token is assigned a unique ID using a predefined
+                  <strong>
+                    vocabulary
+                  </strong>
+                  , which is typically built
+                  <strong>
+                    before training
+                  </strong>
+                  using algorithms like Byte Pair Encoding (BPE).
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>
+                Input Embedding
+              </strong>
+              <ul>
+                <li>
+                  Each token ID is mapped to a high-dimensional
+                  <strong>
+                    embedding vector
+                  </strong>
+                  that represents its meaning.
+                </li>
+                <li>
+                  These vectors are
+                  <strong>
+                    learned during training
+                  </strong>
+                  , so similar tokens (like “cat” and “dog”) have similar embeddings.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>
+                Positional Encoding
+              </strong>
+              <ul>
+                <li>
+                  Since transformers don’t have any inherent sense of token order, positional
+                  encodings are added to the embeddings.
+                </li>
+                <li>
+                  Two types are commonly used:
+                </li>
+                <ol type="a">
+                  <li>
+                    <strong>
+                      Fixed sinusoidal encoding
+                    </strong>
+                    <ul>
+                      <li>
+                        Applies sine and cosine functions to inject position info.
+                      </li>
+                      <li>
+                        Helps generalize to unseen sequence lengths.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>
+                      Learned positional embeddings
+                    </strong>
+                    <ul>
+                      <li>
+                        Each position has a learned vector, trained like word embeddings.
+                      </li>
+                      <li>
+                        Common in models like BERT and GPT.
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
+                <li>
+                  The combined input shape is:
+                  <code>
+                    [batch_size, sequence_length, embedding_dim]
+                  </code>
+                  .
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>
+                Multi-Head Self-Attention
+              </strong>
+              <ul>
+                <li>
+                  Each token can attend to every other token in the sequence (including
+                  itself).
+                </li>
+                <li>
+                  Inputs are linearly projected into multiple sets of
+                  <strong>
+                    queries
+                  </strong>
+                  ,
+                  <strong>
+                    keys
+                  </strong>
+                  , and
+                  <strong>
+                    values
+                  </strong>
+                  .
+                </li>
+                <li>
+                  Each attention head computes attention independently; results are concatenated
+                  and passed through a linear layer.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>
+                Residual Connection & Layer Normalization
+              </strong>
+              <ul>
+                <li>
+                  A
+                  <strong>
+                    residual connection
+                  </strong>
+                  adds the input of the attention layer back to its output.
+                </li>
+                <li>
+                  <strong>
+                    Layer Normalization
+                  </strong>
+                  is applied either before or after the sublayer, depending on the architecture.
+                </li>
+                <li>
+                  <strong>
+                    Pre-LN
+                  </strong>
+                  is used in modern models like BERT and GPT.
+                  <strong>
+                    Post-LN
+                  </strong>
+                  was used in the original Transformer paper.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>
+                Feedforward Neural Network (FFN)
+              </strong>
+              <ul>
+                <li>
+                  Each token’s representation is passed through a two-layer netwrok:
+                </li>
+                <li>
+                  <strong>
+                    First linear layer:
+                  </strong>
+                  Expands dimensionality, giving the model more capacity to learn rich and
+                  complex patterns.
+                </li>
+                <li>
+                  <strong>
+                    Activation function:
+                  </strong>
+                  ReLU or more commonly
+                  <strong>
+                    GELU
+                  </strong>
+                  in modern encoders like BERT.
+                </li>
+                <li>
+                  <strong>
+                    Second linear layer:
+                  </strong>
+                  Projects it back to original embedding size.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>
+                Residual Connection & LayerNorm (Again)
+              </strong>
+              <ul>
+                <li>
+                  The FFN output is added back to its input (residual connection).
+                </li>
+                <li>
+                  Another LayerNorm is applied (again, Pre-LN or Post-LN depending on the
+                  model).
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>
+                Stacking Multiple Encoder Layers
+              </strong>
+              <ul>
+                <li>
+                  These encoder blocks are stacked multiple times.
+                </li>
+                <li>
+                  Lower layers learn local context (word patterns); higher layers learn
+                  deep semantics and long-range dependencies.
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+        <h2 class="collapsible">
+          Decoder Layer of a Transformer
+        </h2>
+        <div class="content">
+          <ol>
+            <span data-ref="ref21">
+            </span>
+            <li>
+              <strong>
+                Tokenization + Embedding is applied to the input (just like in an encoder)
+              </strong>
+            </li>
+            <li>
+              <strong>
+                Start of Decoding
+              </strong>
+            </li>
+            <ul>
+              <li>
+                <code>
+                  &lt;s&gt;
+                </code>
+                — This is the start-of-sequence token, indicating that the model is about
+                to generate the output sentence.
+              </li>
+              <li>
+                <code>
+                  &lt;s&gt;
+                </code>
+                is converted into an embedding vector.
+                <li>
+                  Positional encoding is added to this embedding to provide information
+                  about token position in the sequence.
+                </li>
+            </ul>
+            <li>
+              <strong>
+                Masked Multi-Head Self-Attention
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Allows each word in the decoder to attend to previous tokens only in the
+                output sequence so far.
+              </li>
+              <li>
+                At the first decoding step, this means the model only sees
+                <code>
+                  &lt;s&gt;
+                </code>
+                .
+              </li>
+              <li>
+                The “masking” ensures the model can’t see future tokens, preventing it
+                from cheating during training.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                As in the encoder, Residual Connections + Layer Normalization are applied
+                and then the output is sent through a FFN
+              </strong>
+            </li>
+            <li>
+              <strong>
+                Cross-Attention
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Not used in decoder-only models (like GPT).
+              </li>
+              <li>
+                Used in
+                <strong>
+                  encoder-decoder models
+                </strong>
+                (like T5 or original Transformer) to incorporate encoder output.
+              </li>
+              <li>
+                The query (Q) is taken from the decoder's output after masked self-attention.
+              </li>
+              <li>
+                Keys (K) and Values (V) come from the encoder’s output.
+              </li>
+              <li>
+                Attention scores are computed between the decoder’s current vector and
+                all encoder token vectors to determine how much attention to pay to each
+                encoder token.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                Stacking Layers
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Multiple identical decoder layers are stacked.
+              </li>
+              <li>
+                Each layer refines the output token representation using self-attention
+                and FFN.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                Final Steps: Linear + Softmax Layers
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Linear Layer
+              </li>
+              <ul>
+                <li>
+                  Projects the decoder output vectors to the vocabulary size (i.e., the
+                  number of unique tokens the model can predict).
+                </li>
+                <li>
+                  The output is a logits tensor (PyTorch's multi-dimensional array). Each
+                  token's output is a vector of raw scores (logits) for every word in the
+                  vocabulary.
+                </li>
+                <li>
+                  So the shape of the logits tensor is:
+                  <code>
+                    (batch_size, sequence_length, vocab_size)
+                  </code>
+                  .
+                </li>
+                <li>
+                  Logits for all tokens in the sequence are computed at once because transformers
+                  process the input sequence in parallel.
+                </li>
+                <li>
+                  Each logit represents a raw (unnormalized) score for a particular word
+                  — higher logits imply higher likelihoods before normalization.
+                </li>
+              </ul>
+              <li>
+                Softmax Layer
+              </li>
+              <ul>
+                <li>
+                  The softmax function converts logits into probabilities by scaling and
+                  normalizing across the vocabulary dimension.
+                </li>
+                <li>
+                  This produces a probability distribution over all possible next tokens.
+                </li>
+                <li>
+                  During generation, softmax is typically applied only to the logits of
+                  the
+                  <strong>
+                    last token
+                  </strong>
+                  in the sequence. (Appropriate section of the logit to apply the softmax
+                  func is obtained trough slicing).
+                </li>
+                <li>
+                  This is because we are only interested in predicting the next token at
+                  that specific point in time.
+                </li>
+              </ul>
+            </ul>
+          </ol>
+        </div>
+        <h2 class="collapsible">
+          Python in Large Language Models
+        </h2>
+        <div class="content">
+          <ul>
+            <li>
+              Python libraries such as PyTorch and TensorFlow are widely used to build,
+              train, and deploy Large Language Models (LLMs) because they offer:
+            </li>
+          </ul>
+          <ol>
+            <span data-ref="ref22">
+            </span>
+            <span data-ref="ref23">
+            </span>
+            <li>
+              <strong>
+                <code>
+                  torch, tensorflow
+                </code>
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Core tools for working with tensors — multi-dimensional arrays used to
+                represent inputs, weights, and outputs in neural networks.
+              </li>
+              <li>
+                Built-in automatic differentiation engines (
+                <code>
+                  Autograd
+                </code>
+                in PyTorch,
+                <code>
+                  tf.GradientTape
+                </code>
+                in TensorFlow) that track operations on tensors and compute gradients
+                for backpropagation during training.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                <code>
+                  torch.nn , tf.keras.layers
+                </code>
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Essential components for constructing transformer architectures.
+              </li>
+              <li>
+                Used to define layers such as Embedding, Multi-Head Attention, Feedforward
+                Neural Networks, and Normalization layers.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                <code>
+                  torch.nn.functional , tf.keras.activations
+                </code>
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Stateless functions used inside model layers — including activation functions
+                like ReLU, output functions like softmax, and operations like linear, which
+                apply transformations using given weights and biases.
+              </li>
+            </ul>
+          </ol>
+        </div>
+        <div class="nocollapse-content">
+          <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">
+            References:
+          </h3>
+          <ol id="references">
+          </ol>
+        </div>
+      </div>
+    </main>
+    <script src="../../WEBSITE STYLING/script.js">
+    </script>
+    <script src="../../WEBSITE STYLING/menu.js">
+    </script>
+    <script src="../../WEBSITE STYLING/citations.js">
+    </script>
+  </body>
+
+</html>

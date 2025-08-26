@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../WEBSITE STYLING/project resources table.css"/>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css"/>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css"/>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css"/>
+
+    <title>Calculations Involved</title>
+</head>
+<body>
+    <main>
+    <div class="main-content">
+
+    <div class="styled-box">
+      <table class="func-table">
+        <span data-ref="ref8"></span>
+        <tr class="table-headers">
+            <th>Usage</th>
+            <th>Formula</th>
+        </tr>
+
+        <tr>
+          <td>
+            <ul>
+              <li><strong>Output Layer Gradient</strong>: Measures how much the final error changes with respect to the output neuron's input.</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><code>final error × sigmoid derivative at output</code></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ul>
+              <li><strong>Hidden Layer Gradient</strong>: Determines each hidden neuron's contribution to the final error by:
+                <ul>
+                  <li>Propagating the output error backward through the output weights.</li>
+                  <li>Scaling the result using the sigmoid derivative of the hidden neuron's output.</li>
+                </ul>
+              </li>
+              <li>Transpose the weights from hidden to output layer from shape <code>(2, 1)</code> to <code>(1, 2)</code>.</li>
+              <li>Use <code>weights_hidden_output.T</code> to transpose the matrix.</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><code>output layer gradient · transposed weights × sigmoid derivative of hidden output</code></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ul>
+              <li><strong>Updating Weights (Hidden → Output)</strong></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><code>old weight + (hidden output.T · output error) × learning rate</code></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ul>
+              <li><strong>Updating Output Biases</strong></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><code>old bias + total output error × learning rate</code></li>
+              <li>Total output error is calculated using <code>np.sum(d_output, axis=0, keepdims=True)</code></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ul>
+              <li><strong>Updating Weights (Input → Hidden)</strong></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><code>old weight + (input.T · hidden error) × learning rate</code></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ul>
+              <li><strong>Updating Hidden Biases</strong></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><code>old bias + total hidden error × learning rate</code></li>
+              <li>Total hidden error is calculated using <code>np.sum(d_hidden, axis=0, keepdims=True)</code></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ul>
+              <li><strong>Loss Function</strong>: Aggregates all final errors in the network.</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><code>Mean Squared Error (MSE)</code> of final errors during training</li>
+            </ul>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="nocollapse-content">
+        <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">References:</h3>
+        <ol id="references"></ol>
+    </div>
+
+    </div>
+  </main>
+
+  <script src="../../WEBSITE STYLING/script.js"></script>
+  <script src="../../WEBSITE STYLING/menu.js"></script>
+  <script src="../../WEBSITE STYLING/citations.js"></script>
+
+</body>
+</html>

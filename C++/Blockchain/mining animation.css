@@ -1,0 +1,24 @@
+    body {
+         font-family: sans-serif; background: #111; color: white; padding: 20px; 
+        }
+
+
+    .block { 
+        border: 2px solid #0f0; padding: 20px; margin-bottom: 20px; 
+    }
+
+    .highlight {
+         background: #0f0; color: black; font-weight: bold;
+         }
+
+    button, input[type="range"] { 
+        padding: 10px; font-size: 16px; margin-top: 10px; cursor: pointer;
+     }
+
+    .slider-label { 
+        margin-top: 10px; display: block;
+     }
+
+    #wallet { 
+        font-size: 20px; margin-bottom: 20px; color: #0f0;
+     }

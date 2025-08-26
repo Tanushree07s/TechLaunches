@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Time!</title>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/style.css"/>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css"/>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css"/>
+
+</head>
+<body>
+  
+  <main>
+  <div class="main-content">
+
+  <h2 class="collapsible">Instructions:</h2>
+  <div class="content">
+    <ul>
+      <li>You are going to code up 2 projects this time!</li>
+      <li><strong>Goal:</strong> Create a <strong>Rule-Based Chatbot</strong> and a <strong>Retrival-Based Chatbot</strong>.</li>
+      <span data-ref="ref51"></span>
+      <li>The Rule-Based Chatbot must: </li>
+      <ul>
+        <li>Consist of atleast 5 conditional statements</li>
+        <li>Provide the user with a way to exit the chatbot system (Hint: a break and a condition)</li>
+      </ul>
+
+      <span data-ref="ref57"></span>
+      <li>The Retrival-Based Chatbot will be coded using the <a href="https://www.geeksforgeeks.org/machine-learning/learning-model-building-scikit-learn-python-machine-learning-library/"><strong>Scikit-learn library</strong></a> </li>
+      <ul>
+        <li>Store ateast 4 predefined Q&A pairs.</li>
+        <li>As in the Rule-Based Chatbot provide the user with a way to exit the chatbot system.</li>
+      </ul>
+
+      <li>Refer to <strong><a href="./project resources table.html">Project Resources</a></strong> for information related to the required Scikit concepts to write your code .</li>
+    </ul>
+    </div>
+
+
+    <h2 class="collapsible">Rule-Based Chatbot Code Breakdown:</h2>
+   <div class="content">
+    <ul>
+       <li>Go ahead and copy the guidelines below into your IDE's workspace — let's get started!</li>
+    </ul>
+
+      <pre><code>
+  # TO DO: Define a function called `rule_based_chatbot(user_input)`.
+  # TO DO: Use if-elif-else to handle basic greetings and common questions.
+  # TO DO: Return fixed responses based on pattern matches.
+  # TO DO: Add a default response for unknown inputs.
+  # TO DO: Set up a while-loop to simulate interactive chatting.
+  # TO DO: Exit the loop when the user types "exit" or "quit".
+
+      </code></pre>
+      </div>
+
+
+    <h2 class="collapsible">Solution: Rule-Based Chatbot</h2>
+   <div class="content">
+   <pre><code>
+  def rule_based_chatbot(user_input):
+      user_input = user_input.lower()
+
+      if "hello" in user_input or "hi" in user_input:
+          return "Hello! How can I help you today?"
+      elif "bye" in user_input or "goodbye" in user_input:
+          return "Goodbye! Have a great day!"
+      elif "how are you" in user_input:
+          return "I'm doing great! Thanks for asking!"
+      elif "your name" in user_input:
+          return "I'm a rule-based chatbot!"
+      else:
+          return "I'm not sure how to respond to that."
+
+  # Example interaction
+  while True:
+      user_input = input("You: ")
+      if user_input.lower() in ["exit", "quit"]:
+          print("Bot: Goodbye!")
+          break
+      response = rule_based_chatbot(user_input)
+      print("Bot:", response)
+    </code></pre>
+    </div>
+
+
+    <h2 class="collapsible">Retrival-Based Chatbot Code Breakdown:</h2>
+   <div class="content">
+    <ul>
+       <li>Go ahead and copy the guidelines below into your IDE's workspace — let's get started!</li>
+    </ul>
+
+      <pre><code>
+  from sklearn.feature_extraction.text import TfidfVectorizer
+  from sklearn.metrics.pairwise import cosine_similarity
+
+  # TO DO: Create a dictionary of question-answer pairs.
+  # TO DO: Vectorize all the questions using `TfidfVectorizer`.
+  # TO DO: Define a function called `retrieval_based_chatbot(user_input)`.
+  # TO DO: Compute cosine similarity between user input and known questions.
+  # TO DO: Retrieve and return the most similar answer.
+  # TO DO: Set a similarity threshold to reject weak matches.
+  # TO DO: Add a fallback response for low-similarity input.
+  # TO DO: Build an interactive loop for chatting.
+      </code></pre>
+      </div>
+
+   <h2 class="collapsible">Solution: Retrival-Based Chatbot</h2>
+   <div class="content">
+    <pre><code>
+  from sklearn.feature_extraction.text import TfidfVectorizer
+  from sklearn.metrics.pairwise import cosine_similarity
+
+  # Define known questions and answers
+  qa_pairs = {
+      "hello": "Hello! How can I assist you?",
+      "how are you": "I'm doing great! Thanks for asking!",
+      "what is your name": "I'm a retrieval-based chatbot.",
+      "bye": "See you later!"
+  }
+
+  # Prepare TF-IDF
+  vectorizer = TfidfVectorizer()
+  questions = list(qa_pairs.keys())
+  tfidf_matrix = vectorizer.fit_transform(questions)
+
+  def retrieval_based_chatbot(user_input):
+      user_tfidf = vectorizer.transform([user_input])
+      similarities = cosine_similarity(user_tfidf, tfidf_matrix)
+      best_match_idx = similarities.argmax()
+
+      if similarities[0, best_match_idx] < 0.3:
+          return "Sorry, I don't understand that."
+      return qa_pairs[questions[best_match_idx]]
+
+  # Example interaction
+  while True:
+      user_input = input("You: ")
+      if user_input.lower() in ["exit", "quit"]:
+          print("Bot: Goodbye!")
+          break
+      response = retrieval_based_chatbot(user_input.lower())
+      print("Bot:", response)
+
+    </code></pre>
+    </div>
+
+    <div class="nocollapse-content">
+        <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">References:</h3>
+        <ol id="references"></ol>
+    </div>
+
+  </div>
+  </main>
+
+  <script src="../../WEBSITE STYLING/script.js"></script>
+  <script src="../../WEBSITE STYLING/menu.js"></script>
+  <script src="../../WEBSITE STYLING/citations.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PyTorch Functions</title>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/project resources table.css"/>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/style.css"/>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css"/>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css"/>
+
+
+</head>
+<body>
+
+  <main>
+  <div class="main-content">
+
+        <div class="styled-box">
+          <table class="func-table">
+          <span data-ref="ref58"></span>
+            <tr class="table-headers">
+              <th>Function Name, Syntax</th>
+              <th>Usage</th>
+              <th>Usage in Project</th>
+            </tr>
+
+              <tr>
+                  <td><ul><li><code>TfidfVectorizer()</code></li></ul></td>
+                  <td><ul><li>Initializes a TF-IDF vectorizer to convert text data into numerical feature vectors.</li></ul></td>
+                  <td><ul><li>Used to prepare question data for vector comparison in the retrieval-based chatbot.</li></ul></td>
+              </tr>
+
+              <tr>
+                  <td><ul><li><code>vectorizer.fit_transform(list)</code></li></ul></td>
+                  <td><ul><li>Fits the TF-IDF vectorizer on a list of text entries and transforms them into a TF-IDF matrix.</li></ul></td>
+                  <td><ul><li>Applies TF-IDF to the list of predefined questions so they can be compared with user input.</li></ul></td>
+              </tr>
+
+              <tr>
+                  <td><ul><li><code>cosine_similarity(vector_a, vector_b)</code></li></ul></td>
+                  <td><ul><li>Calculates cosine similarity scores between two vectors or matrices.</li></ul></td>
+                  <td><ul><li>Used to compare the vectorized user input with all stored question vectors to find the closest match.</li></ul></td>
+              </tr>
+
+              <tr>
+                  <td><ul><li><code>similarity_scores.argmax()</code></li></ul></td>
+                  <td><ul><li>Returns the index of the maximum value in a similarity score array.</li></ul></td>
+                  <td><ul><li>Identifies the index of the most similar known question to generate the best response.</li></ul></td>
+              </tr>
+          </table>
+          </div>
+    
+      
+    <div class="nocollapse-content">
+        <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">References:</h3>
+        <ol id="references"></ol>
+    </div>
+
+  </div>
+  </main>
+              
+  <script src="../../WEBSITE STYLING/script.js"></script>
+  <script src="../../WEBSITE STYLING/menu.js"></script>
+  <script src="../../WEBSITE STYLING/citations.js"></script>
+
+
+</body>
+</html>      

@@ -1,0 +1,16 @@
+    sup a {
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+    #references {
+      margin-top: 30px;
+      padding-top: 10px;
+    }
+    .backlinks {
+      margin-left: 10px;
+      font-size: 1.0em;
+    }
+    .backlinks a {
+      margin-right: 10px;
+      text-decoration: none;
+    }

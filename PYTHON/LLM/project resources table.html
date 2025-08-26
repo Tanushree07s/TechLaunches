@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      PyTorch Functions
+    </title>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/project resources table.css"
+    />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css" />
+  </head>
+  
+  <body>
+    <main>
+      <div class="main-content">
+        <div class="styled-box">
+          <table class="func-table">
+            <span data-ref="ref26">
+            </span>
+            <tr class="table-headers">
+              <th>
+                Function Name, Syntax
+              </th>
+              <th>
+                Usage
+              </th>
+              <th>
+                Usage in Project
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      torch.tensor(data)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Creates a tensor from data (list, NumPy array, etc.).
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Converts input and target sequences into tensors before training.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      torch.tensor(data, dtype=torch.long)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Creates a tensor with a specified data type.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Ensures correct input type for embedding and attention layers.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      torch.zeros(shape)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Creates a tensor filled with zeros.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Initializes positional encoding tensor.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      torch.arange(start, end)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Returns evenly spaced values in a given interval.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Generates position indices for encoding.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      tensor.unsqueeze(dim)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Adds a dimension at specified axis.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Expands positional encoding shape for broadcasting.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      nn.Sequential(...)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Creates a container for layers to be executed in sequence.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Builds feedforward sublayer in Transformer block.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      nn.LayerNorm(shape)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Applies layer normalization to inputs.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Normalizes output in each Transformer sublayer.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      nn.Module
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Base class for all neural networks in PyTorch.
+                  </li>
+                  <li>
+                    Provides core functionality such as:
+                  </li>
+                  <ul>
+                    <li>
+                      <code>
+                        .forward()
+                      </code>
+                      : Defines the forward pass logic of the model (called automatically when
+                      you use the model on input).
+                    </li>
+                    <li>
+                      <code>
+                        .eval()
+                      </code>
+                      /
+                      <code>
+                        .train()
+                      </code>
+                      : Sets the model to evaluation or training mode.
+                    </li>
+                  </ul>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used as a superclass for custom model and layer classes.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      self.register_buffer(name, tensor)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Registers a non-trainable tensor as part of model state.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Saves positional encodings with model without training them.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      F.softmax(logits, dim=-1)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Applies softmax across specified dimension.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Converts output logits to probabilities during sampling.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      torch.long
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    64-bit integer tensor data type.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used to format token ID tensors correctly.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      nn.Embedding(vocab_size, embed_dim)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Creates an embedding layer.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Maps discrete tokens to continuous vectors.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      nn.MultiheadAttention(embed_dim, n_heads)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Applies multi-head self-attention.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used to capture relationships between tokens.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      nn.Linear(embed_dim, vocab_size)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Creates a linear transformation layer that applies the formula: output=input
+                    × weights + bias
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used in the FFNN as well as to generate the logit vector.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      self.embed(x)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Passes input token ids through the embedding layer.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used to get dense vectors for each token in sequence.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      self.pos_enc(x)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Adds positional encodings to token embeddings.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Incorporates position information into token vectors.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      self.attn(x, x, x)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Applies self-attention, taking in the vectors used to project query, key,
+                    value (
+                    <stroing>
+                      ie x
+                    </stroing>
+                    ).
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Computes attention weights and updates token representations.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      random.sample(data, batch_size)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Randomly selects a subset from data.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used to generate mini-batches during training.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      loss.backward()
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Computes gradients of loss w.r.t. model parameters.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used during training to update model weights.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      optimizer.step()
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Updates model parameters using gradients.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Applies gradient descent step to train the model.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      model.eval()
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Switches model to evaluation mode (disables dropout, etc.).
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used during inference/sampling phase.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      torch.argmax(tensor)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Returns the index of the max value in a tensor.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used to select the most likely next token.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      tensor.item()
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Converts single-value tensor to Python scalar.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used after
+                    <code>
+                      argmax()
+                    </code>
+                    to get next token index.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      torch.optim.Adam(params, lr)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Implements the Adam optimizer for training.
+                  </li>
+                  <li>
+                    <code>
+                      params
+                    </code>
+                    : the model parameters to update (usually passed as
+                    <code>
+                      model.parameters()
+                    </code>
+                    ).
+                  </li>
+                  <li>
+                    <code>
+                      lr
+                    </code>
+                    (learning rate): controls how much to adjust the model weights during
+                    each update step (e.g., 0.001).
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Used to apply adaptive learning rate optimization for faster convergence.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      nn.CrossEntropyLoss()
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    It is a loss function used in Neural Network training.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Calculates token prediction loss.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      model.train()
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Enables training-specific layers like dropout.
+                  </li>
+                  <li>
+                    Dropout randomly disables a fraction of neurons during training to prevent
+                    overfitting, where the model memorizes training data instead of generalizing
+                    to new data.
+                  </li>
+                  <li>
+                    This helps the model perform better on unseen inputs by encouraging it
+                    to learn more robust, general patterns.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Sets model mode to training.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      tensor.view(shape)
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Reshapes tensor without copying data.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Reshapes predictions and targets before loss calculation.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    <code>
+                      optimizer.zero_grad()
+                    </code>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Clears the old gradients from the previous step.
+                  </li>
+                  <li>
+                    By default, PyTorch
+                    <strong>
+                      accumulates gradients
+                    </strong>
+                    — it adds new gradients on top of the previous ones.
+                  </li>
+                  <li>
+                    This can cause incorrect updates if not cleared, so we usually reset them
+                    each time to learn properly from the current batch.
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    Gets the model ready to calculate fresh gradients for the next training
+                    batch.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="nocollapse-content">
+          <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">
+            References:
+          </h3>
+          <ol id="references">
+          </ol>
+        </div>
+      </div>
+    </main>
+    <script src="../../WEBSITE STYLING/script.js">
+    </script>
+    <script src="../../WEBSITE STYLING/menu.js">
+    </script>
+    <script src="../../WEBSITE STYLING/citations.js">
+    </script>
+  </body>
+
+</html>

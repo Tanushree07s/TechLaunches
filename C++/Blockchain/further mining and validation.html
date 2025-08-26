@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css" />
+    <title>
+      Deeper Dive into Mining and Validation
+    </title>
+  </head>
+  
+  <body>
+    <main>
+      <div class="main-content">
+        <div class="nocollapse-content">
+          <ul>
+            <span data-ref="ref79">
+            </span>
+            <li>
+              A cryptographic puzzle in the Proof-of-Work Blockchain is solved using
+              <span class="tooltip">
+                <strong class="tooltipstrong">
+                  hashing
+                </strong>
+                <span class="tooltiptext">
+                  Process in which input data is transformed into a fixed-size, unique output
+                  hash value using a one-way function that cannot be reversed, ensuring data
+                  security and integrity.
+                </span>
+              </span>
+              .
+            </li>
+            <br/>
+            <li>
+              <strong>
+                Target Hash
+              </strong>
+            </li>
+            <ul>
+              <li>
+                The target hash is a threshold value that defines how hard it is to mine
+                a block in a Proof-of-Work system.
+              </li>
+              <li>
+                A block is considered valid only if its computed hash is less than or
+                equal to this target.
+              </li>
+              <li>
+                These hashes are usually represented in hexadecimal.
+              </li>
+              <li>
+                The target determines the difficulty of the puzzle:
+              </li>
+              <ul>
+                <li>
+                  Lower target = fewer valid hashes = harder puzzle.
+                </li>
+                <li>
+                  Higher target = more valid hashes = easier puzzle.
+                </li>
+              </ul>
+              <li>
+                The difficulty of the target hash is determined by the
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    mining difficulty
+                  </strong>
+                  <div class="tooltiptext">
+                    <p>
+                      This tells the miner how small that target is compared to the easiest
+                      it could ever be. It is adjusted using:
+                    </p>
+                    <ul>
+                      <li>
+                        Targeted average time (desired block time) taken for generating a new
+                        block. This is decided by the blockchain protocol to ensure a consistent
+                        and stable rate of block creation.
+                      </li>
+                      <li>
+                        Recent actual average time taken to generate new blocks.
+                      </li>
+                      <li>
+                        For insance, in the Bitcoin system:
+                        <code>
+                          <strong>
+                            new_difficulty = old_difficulty × (actual_time / target_time)
+                          </strong>
+                        </code>
+                      </li>
+                    </ul>
+                  </div>
+                </span>
+                .
+              </li>
+              <li>
+                <strong>
+                  Computing Target Hash:
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  <code>
+                    current_target= max_target/difficulty
+                  </code>
+                </li>
+                <li>
+                  max_target = The largest possible target value allowed by the blockchain
+                  protocol. It corresponds to difficulty 1.
+                </li>
+                <li>
+                  current_target = the actual target hash threshold right now.
+                </li>
+                <li>
+                  A target with more leading zeros in hexadecimal corresponds to a smaller
+                  integer
+                </li>
+                <li>
+                  Smaller number → fewer possible valid hashes → higher difficulty.
+                </li>
+              </ul>
+            </ul>
+            <br/>
+            <li>
+              <strong>
+                How hashing works in mining:
+              </strong>
+            </li>
+            <ol>
+              <li>
+                Take the block data (e.g., transactions, previous hash, timestamp).
+              </li>
+              <li>
+                Append a
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    nonce
+                  </strong>
+                  <span class="tooltiptext">
+                    It is a random or sequential number that miners keep changing to get a
+                    valid hash.
+                  </span>
+                </span>
+                (starting from 0).
+              </li>
+              <li>
+                Use algorithms such as
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    Secure Hash Algorithm 256-bit (SHA-256)
+                  </strong>
+                  <span class="tooltiptext">
+                    It's a cryptographic hash function — a one-way mathematical function that
+                    turns input data (of any size) into a fixed-size output: a 256-bit hex
+                    string.
+                  </span>
+                </span>
+                to compute the hash of the combined data.
+              </li>
+              <li>
+                Check if the hash has the required number of leading zeros.
+              </li>
+              <li>
+                If yes, the block is mined.
+              </li>
+              <li>
+                If no, increment the nonce and repeat.
+              </li>
+            </ol>
+            <li>
+              <strong>
+                Use these PoW and PoS simulations to experiece being a miner and validator!
+              </strong>
+            </li>
+            <ul>
+              <li>
+                <a href="./mining animation.html">
+                  <strong>
+                    PoW Simulation
+                  </strong>
+                </a>
+              </li>
+              <li>
+                <a href="./validation animation.html">
+                  <strong>
+                    PoS Simulation
+                  </strong>
+                </a>
+              </li>
+            </ul>
+          </ul>
+        </div>
+        <div class="nocollapse-content">
+          <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">
+            References:
+          </h3>
+          <ol id="references">
+          </ol>
+        </div>
+      </div>
+    </main>
+    <script src="../../WEBSITE STYLING/script.js">
+    </script>
+    <script src="../../WEBSITE STYLING/menu.js">
+    </script>
+    <script src="../../WEBSITE STYLING/citations.js">
+    </script>
+  </body>
+
+</html>

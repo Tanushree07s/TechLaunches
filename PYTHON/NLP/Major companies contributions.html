@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Advances in the Field of NLP
+    </title>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/companies.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css" />
+  </head>
+  
+  <body>
+    <main>
+      <div class="main-content">
+        <h2 class="collapsible">
+          <img src="../../WEBSITE STYLING/Companies logos/OpeanAI_logo-removebg-preview.png"
+          alt="OpenAI Logo" class="logo-header">
+        </h2>
+        <div class="content">
+          <ol>
+            <span data-ref="ref30">
+            </span>
+            <li>
+              <strong>
+                GPT Models (GPT-1 to GPT-4o):
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Trained on a huge amount of internet data to learn grammar, facts, and
+                reasoning.
+              </li>
+              <li>
+                GPT-4 understands both text and images, and GPT-4o adds voice and sound
+                too.
+              </li>
+            </ul>
+            <span data-ref="ref31">
+            </span>
+            <li>
+              <strong>
+                Making AI Behave Better (RLHF):
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Used feedback from real people to teach the model how to give safer, more
+                helpful answers.
+              </li>
+              <li>
+                Combined reward systems and tuning methods to align AI behavior with human
+                values.
+              </li>
+            </ul>
+            <span data-ref="ref59">
+            </span>
+            <li>
+              <strong>
+                ChatGPT and API Access:
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Launched ChatGPT and APIs that let anyone use these models in apps and
+                websites.
+              </li>
+              <li>
+                Handles tasks like writing summaries, answering questions, translating
+                text, or writing code.
+              </li>
+            </ul>
+          </ol>
+        </div>
+        <h2 class="collapsible">
+          <img src="../../WEBSITE STYLING/Companies logos/google.png" alt="Google Logo"
+          class="logo-header">
+        </h2>
+        <div class="content">
+          <ol>
+            <span data-ref="ref33">
+            </span>
+            <li>
+              <strong>
+                BERT:
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Uses
+                <strong>
+                  bidirectional attention
+                </strong>
+                to read both left and right context simultaneously, enabling deep understanding
+                of word relationships in a sentence.
+              </li>
+              <li>
+                Learns to predict randomly masked words using surrounding context
+                <strong>
+                  (Masked Language Modeling)
+                </strong>
+                , producing contextual word embeddings (word meanings that depend on neighboring
+                words).
+              </li>
+              <li>
+                Pretrained to guess missing words and understand how sentences relate
+                to each other
+                <strong>
+                  (Next Sentence Prediction)
+                </strong>
+                .
+              </li>
+            </ul>
+            <span data-ref="ref60">
+            </span>
+            <li>
+              <strong>
+                T5 (Text-to-Text Transfer):
+              </strong>
+            </li>
+            <ul>
+              <li>
+                It is a large transformer model that treats every NLP task as a text-to-text
+                problem. This means both the input and output are plain text, regardless
+                of the task. For instance, for an English-to-Spanish translation, the input
+                could be: "translate English to German: That is a table." then the output
+                would be the translated sentence in Spanish.".
+              </li>
+              <li>
+                Trained on a huge cleaned dataset called C4 using a method called
+                <a href="https://medium.com/@gagangupta_82781/understanding-the-t5-model-a-comprehensive-guide-b4d5c02c234b">
+                  span corruption
+                </a>
+                .
+              </li>
+            </ul>
+            <li>
+              <strong>
+                Built
+                <a href="https://en.wikipedia.org/wiki/PaLM">
+                  PaLM
+                </a>
+                and
+                <a href="https://en.wikipedia.org/wiki/Gemini_(chatbot)">
+                  Gemini
+                </a>
+                models for even smarter, multi-modal AI (text, image, video).
+              </strong>
+            </li>
+            <span data-ref="ref61">
+            </span>
+            <li>
+              <strong>
+                Flan-T5 is a version that was fine-tuned to handle a wide range of NLP
+                tasks such as translation, question answering,reasoning, and text generation
+                by framing them all into a text-to-text format.
+              </strong>
+            </li>
+          </ol>
+        </div>
+        <h2 class="collapsible">
+          <img src="../../WEBSITE STYLING/Companies logos/Meta.png" alt="Meta Logo"
+          class="logo-header">
+        </h2>
+        <div class="content">
+          <ol>
+            <span data-ref="ref62">
+            </span>
+            <li>
+              <strong>
+                XLM & XLM-R:
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Multilingual models trained on 100+ languages using a technique called
+                masked language modeling.
+              </li>
+              <li>
+                Can do cross-lingual tasks (e.g., translate or understand languages it
+                wasn’t directly trained on).
+              </li>
+            </ul>
+            <li>
+              <strong>
+                fairseq & LASER:
+              </strong>
+            </li>
+            <ul>
+              <span data-ref="ref63">
+              </span>
+              <li>
+                <strong>
+                  fairseq:
+                </strong>
+                A tool to train translation and summarization models.
+              </li>
+              <span data-ref="ref64">
+              </span>
+              <li>
+                <strong>
+                  LASER:
+                </strong>
+                Converts sentences from any language into a numerical vector embeddings
+                in a
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    shared multilingual space
+                  </strong>
+                  <span class="tooltiptext">
+                    Instead of each language having its own separate space of vectors, LASER
+                    makes one single space where sentences from different languages that mean
+                    the same thing end up close to each other.
+                  </span>
+                </span>
+                . This common form allows direct comparison across languages—for example,
+                a sentence in English can be matched with its equivalent in French or Spanish
+                by comparing their embeddings.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                M2M-100:
+              </strong>
+            </li>
+            <ul>
+              <span data-ref="ref65">
+              </span>
+              <li>
+                <strong>
+                  M2M-100:
+                </strong>
+                A translation model that translates directly between 100 languages (no
+                English in-between).
+              </li>
+            </ul>
+          </ol>
+        </div>
+        <h2 class="collapsible">
+          <img src="../../WEBSITE STYLING/Companies logos/Microsoft.png" alt="Microsoft Logo"
+          class="logo-header">
+        </h2>
+        <div class="content">
+          <ol>
+            <li>
+              <strong>
+                Copilot (powered by
+                <a href="https://en.wikipedia.org/wiki/OpenAI_Codex">
+                  OpenAI's Codex model
+                </a>
+                ):
+              </strong>
+            </li>
+            <ul>
+              <span data-ref="ref66">
+              </span>
+              <li>
+                Built into VS Code and GitHub to suggest code while you type.
+              </li>
+              <li>
+                Trained on billions of lines of code to understand developer intent.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                Azure OpenAI Service:
+              </strong>
+            </li>
+            <span data-ref="ref67">
+            </span>
+            <ul>
+              <li>
+                Offers GPT models for businesses through Azure with privacy and security
+                features.
+              </li>
+              <li>
+                Used to power Microsoft Word, Excel, and Teams via "Copilot" features.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                DeepSpeed & ONNX Runtime:
+              </strong>
+            </li>
+            <ul>
+              <span data-ref="ref68">
+              </span>
+              <li>
+                <strong>
+                  DeepSpeed:
+                </strong>
+                Helps train massive models faster and with less memory.
+              </li>
+              <span data-ref="ref69">
+              </span>
+              <li>
+                <strong>
+                  ONNX Runtime:
+                </strong>
+                Makes models run efficiently across different devices.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                Responsible AI Tools:
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Microsoft builds tools like
+                <a href="https://fairlearn.org/">
+                  Fairlearn
+                </a>
+                and
+                <a href="https://interpret.ml/">
+                  InterpretML
+                </a>
+                to test for bias and explain model decisions.
+              </li>
+              <li>
+                Focused on building safe, ethical NLP systems for real-world use.
+              </li>
+            </ul>
+          </ol>
+        </div>
+        <div class="nocollapse-content">
+          <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">
+            References:
+          </h3>
+          <ol id="references">
+          </ol>
+        </div>
+      </div>
+    </main>
+    <script src="../../WEBSITE STYLING/script.js">
+    </script>
+    <script src="../../WEBSITE STYLING/menu.js">
+    </script>
+    <script src="../../WEBSITE STYLING/citations.js">
+    </script>
+  </body>
+
+</html>

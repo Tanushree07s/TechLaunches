@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PoW Mining Simulator</title>
+  <script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/src/sha256.min.js"></script>
+  <link rel="stylesheet" href="./mining animation.css">
+</head>
+<body>
+
+  <h1>Proof of Work (PoS) Simulator</h1>
+
+  <!-- Wallet Display -->
+  <div id="wallet">🪙 Wallet Balance: <strong><span id="walletBalance">0</span> coins</strong></div>
+
+  <!-- Difficulty Slider -->
+  <label class="slider-label">🎚️ Difficulty: <span id="difficultyValue">4</span></label>
+  <input type="range" min="1" max="6" value="4" id="difficultySlider" oninput="updateDifficulty(this.value)">
+
+  <!-- Block Reward -->
+  <p>🪙 Block Reward: <strong>50 coins</strong></p>
+
+  <!-- Mining Block -->
+  <div class="block" id="blockContainer">
+    <p><strong>Transaction:</strong> <span id="transaction">Alice pays Bob 5 coins</span></p>
+    <p><strong>Previous Hash:</strong> <span id="prevHash">0000abcdef123456</span></p>
+    <p><strong>Nonce:</strong> <span id="nonce">0</span></p>
+    <p><strong>Hash:</strong> <span id="hash">---</span></p>
+  </div>
+
+  <!-- Buttons -->
+  <button onclick="mine()">⛏️ Start Mining</button>
+  <button onclick="stopMining()">🛑 Stop Mining</button>
+  <button onclick="addNextBlock()" id="addBlockBtn" disabled>⛓️ Add Next Block</button>
+
+  <p id="result"></p>
+  
+  <script src="./mining animation.js"></script>
+</body>
+</html>

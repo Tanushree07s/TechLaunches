@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Time!</title>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/style.css"/>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css"/>
+  <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css"/>
+
+</head>
+<body>
+
+    <main>
+    <div class="main-content">
+
+  <h2 class="collapsible">Instructions:</h2>
+  <div class="content">
+    <ul>
+     <span data-ref="ref24"></span>
+     <span data-ref="ref25"></span>
+      <li>You are going to build and train your very own mini <strong>decoder</strong> language model.</li>
+      <li><strong>Goal:</strong> Train a simple Transformer-style model from scratch that learns how to generate text character-by-character.</li>
+      <li>The network will be created using the PyTorch library and will consist of:</li>
+    </ul>
+
+    <ol>
+      <li><strong>Hyperparameters:</strong> Settings or values given before training the model. They control how learning happens.</li>
+      <ul>
+        <li><code>context_len = 16</code> — Number of previous characters (tokens) the model looks at to predict the next one.</li>
+        <li><code>embed_dim = 64</code> — Size of each embedding vector (in dimensions).</li>
+        <li><code>n_heads = 4</code> — Number of attention heads in multi-head self-attention.</li>
+        <li><code>ff_hidden = 128</code> — Hidden layer size (in neurons) in the feedforward network.</li>
+        <li><code>lr = 1e-3</code> — (0.001) Learning rate. Controls how much the model updates its weights after seeing each batch.</li>
+        <li><code>epochs = 300</code> — Number of training passes over the entire dataset.</li>
+        <li><code>batch_size = 32</code> — Number of samples processed before the model updates its weights.</li>
+      </ul>
+
+      <li><strong>Vocabulary and Tokenization:</strong></li>
+      <ul>
+        <li>Define a character-level vocabulary from your dataset that includes all lowercase letters <strong>(using string.ascii_lowercase) and  " .,!?'-\n"</strong> .</li>
+        <li>Use Python’s string and dictionary functions to tokenize characters into unique integer IDs.</li>
+      </ul>
+
+      <li><strong>Model Components:</strong></li>
+      <ul>
+        <li><strong>Positional Encoding class</strong> — Adds position information to the input embeddings.</li>
+        <li><strong>TransformerBlock class</strong> — Includes:
+          <ul>
+            <li>Embedding Layer</li>
+            <li>Multi-head Self-Attention</li>
+            <li>Feedforward Neural Network</li>
+            <li>Layer Normalization</li>
+            <li>Final Linear Output Layer</li>
+          </ul>
+        </li>
+      </ul>
+
+      <li><strong>Training Loop:</strong></li>
+      <ul>
+        <li>Loop over epochs and batches.</li>
+        <li>Calculate loss using cross-entropy (a loss function) between predictions and targets.</li>
+        <li>Backpropagate and update model weights to minimize loss and improve performance using the optimizer (eg: Stochastic Gradient Descent , <strong>Adam (optimizer used here)</strong>).</li>
+      </ul>
+
+      <li><strong>Text Generation:</strong></li>
+      <ul>
+        <li>Write a function that generates new text from the model.</li>
+        <li>Feed in a starting context and predict the next character repeatedly.</li>
+      </ul>
+    </ol>
+    <ul>
+    <li>The code for the Positional Encoding and Traning sections have been given to you.</li>
+    <li>Refer to <strong><a href="./project resources.html">Project Resources</a></strong> for information related to the required PyTorch concepts to write your code .</li>
+    </ul>
+</div>
+ 
+
+     
+  <h2 class="collapsible">Project Code Breakdown:</h2>
+   <div class="content">
+    <ul>
+       <li>Go ahead and copy the guidelines below into your IDE's workspace — let's get started!</li>
+    </ul>
+
+      <pre><code>
+    import torch
+    import torch.nn as nn
+    import torch.nn.functional as F
+    import numpy as np
+    import random
+    import string
+
+
+    #  ----- START WRITING YOUR CODE BELOW THIS ----- 
+    # TO DO: Define model hyperparameters as mentioned in instructions (context size, embedding dim, heads, etc.).
+
+    -----Vocabulary ----- 
+
+
+    # TO DO: Create a list of allowed characters for the vocabulary.
+    # TO DO: Create mappings from character → ID and ID → character.
+    # TO DO: Store the total vocabulary size.
+
+    ----- Tokenization ----- 
+
+    # TO DO: Write a function to convert text into token IDs.
+    # TO DO: Write a function to decode token IDs back into text.
+
+    ----- Positional Encoding class to inject order into embeddings ----- 
+
+
+    class PositionalEncoding(nn.Module):
+    def __init__(self, d_model, max_len=500):
+    super(PositionalEncoding, self).__init__()
+    pos_enc = torch.zeros(max_len, d_model)
+    pos = torch.arange(0, max_len).unsqueeze(1)
+    div_term = torch.exp(torch.arange(0, d_model, 2) * -(np.log(10000.0) / d_model))
+
+    for i in range(max_len):
+    for j in range(0, d_model, 2):
+        pos_enc[i, j] = torch.sin(pos[i] * div_term[j // 2])
+        if j + 1 < d_model:
+            pos_enc[i, j + 1] = torch.cos(pos[i] * div_term[j // 2])
+
+    pos_enc = pos_enc.unsqueeze(0)
+    self.register_buffer('pos_enc', pos_enc)
+
+    def forward(self, x):
+    return x + self.pos_enc[:, :x.size(1)]
+
+    ----- Transformer Block ----- 
+
+    # TO DO: Build a TransformerBlock class with:
+    #        - Embedding layer
+    #        - Positional encoding
+    #        - Multi-head self-attention
+    #        - Feedforward network
+    #        - Layer normalizations
+    #        - Output linear layer
+    #        - Forward Method
+    # TO DO: In the forward method:
+    #        - It should take in a tensor of token ids (x)
+    #        - Convert the ids into embedding vectors.
+    #        - Inject positional encoding.
+    #        - Apply self attention and when <strong><code>self.attn()</code> returns attention scores, attention weights, store the weights in a throwaway variable (since we won't be using that value).</strong>
+    #        - Residual connection +layer norm
+    #        - FFNN
+    #        - Residual connection +layer norm
+    #        - Store and return logit values.
+
+    ----- Dummy Dataset Creation ----- 
+
+    # TO DO: Provide a sample text for the model to learn from.
+    # TO DO: Tokenize full text.
+    # TO DO: Break tokens into (context_len + 1)-sized sequences.
+    # TO DO: Create a function that returns a training batch:
+    #        - Inputs: first context_len tokens
+    #        - Targets: next token for each position
+    #        - Convert to PyTorch tensors
+
+    ----- Training Model ----- 
+
+    model = SimpleTransformerBlock()
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+    loss_fn = nn.CrossEntropyLoss()
+
+    print("Training started...")
+    for epoch in range(epochs):
+    model.train()
+    inputs, targets = get_batch()
+    logits = model(inputs)
+    logits = logits.view(-1, vocab_size)
+    targets = targets.view(-1)
+    loss = loss_fn(logits, targets)
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    if epoch % 25 == 0 or epoch == epochs - 1:
+    print("Epoch {:03d} | Loss: {:.4f}".format(epoch, loss.item()))
+
+    ----- Text Generation -----
+
+    # TO DO: Write a text generation function:
+    #        - Accept prompt and length.
+    #        - Set model to eval mode to prevent any random behaviour. (ie same input should produce same results).
+    #        - Tokenize input.
+    #        - If num of token ids> context_len: Take most recent (context_len) token IDs
+    #        - If num of token ids< context_len: Pad the begenning with zeros (zero is assumed to be special padding token)
+    #        - Hint: Multiplying a list by a number repeats the list that many times.
+
+    #        - Loop to predict next token using softmax
+    #        - During that process, disable gradient tracking (building a computational graph of tensor operations for back propagation)  for efficiency during prediction.
+
+    #        - Add predicted token to prompt.
+    #        - Return final string.
+
+    # TO DO: Test model by generating a sample from a prompt string.
+
+    </code></pre>
+    </div>
+
+    <h2 class="collapsible">Solution:</h2>
+   <div class="content">
+   <pre><code>
+    import torch
+    import torch.nn as nn
+    import torch.nn.functional as F
+    import numpy as np
+    import random
+    import string
+
+    # ====== Hyperparameters ======
+    context_len = 16  # Number of characters (tokens) to use as context for predicting next character
+    embed_dim = 64  # Embedding dimension for each token
+    n_heads = 4  # Number of attention heads
+    ff_hidden = 128  # Hidden layer size in the feedforward network
+    lr = 1e-3  # Learning rate for optimizer
+    epochs = 300  # Number of training epochs
+    batch_size = 32  # Number of samples per training batch
+
+    # ====== Define Clean Vocabulary ======
+    allowed_chars = string.ascii_lowercase + " .,!?'-\n"  # Define allowed characters
+
+    vocab = {}  # Mapping from character to index
+    index = 0
+    for character in allowed_chars:
+        vocab[character] = index
+        index += 1
+
+    inv_vocab = {}  # Mapping from index back to character (for decoding)
+    for character, index in vocab.items():
+        inv_vocab[index] = character
+
+    vocab_size = len(vocab)  # Total number of unique tokens
+
+    # Converts string to list of integer tokens
+    def simple_tokenize(text):
+        token_list = []
+        for character in text.lower():
+            if character in vocab:
+                token_list.append(vocab.get(character, 0))
+        return token_list
+
+    # Converts list of tokens back to text
+    def decode_tokens(tokens):
+        result = ''
+        for token in tokens:
+            result += inv_vocab.get(token, '?')
+        return result
+
+    # ====== Positional Encoding ======
+    class PositionalEncoding(nn.Module):
+        def __init__(self, d_model, max_len=500):
+            super(PositionalEncoding, self).__init__()
+            pos_enc = torch.zeros(max_len, d_model)  # Positional encoding matrix
+            pos = torch.arange(0, max_len).unsqueeze(1)  # Positions 0 to max_len
+            div_term = torch.exp(torch.arange(0, d_model, 2) * -(np.log(10000.0) / d_model))  # Scaling factors
+
+            # Fill the positional encoding matrix using sine and cosine
+            for i in range(max_len):
+                for j in range(0, d_model, 2):
+                    pos_enc[i, j] = torch.sin(pos[i] * div_term[j // 2])
+                    if j + 1 < d_model:
+                        pos_enc[i, j + 1] = torch.cos(pos[i] * div_term[j // 2])
+
+            pos_enc = pos_enc.unsqueeze(0)  # Add batch dimension
+            self.register_buffer('pos_enc', pos_enc)  # Register as buffer (non-trainable)
+
+        def forward(self, x):
+            return x + self.pos_enc[:, :x.size(1)]  # Add position encoding to input
+
+    # ====== Transformer Block ======
+    class SimpleTransformerBlock(nn.Module):
+        def __init__(self):
+            super(SimpleTransformerBlock, self).__init__()
+            self.embed = nn.Embedding(vocab_size, embed_dim)  # Token embedding layer
+            self.pos_enc = PositionalEncoding(embed_dim)  # Positional encoding layer
+            self.attn = nn.MultiheadAttention(embed_dim, n_heads, batch_first=True)  # Multi-head self-attention
+            self.ff = nn.Sequential(  # Feedforward block
+                nn.Linear(embed_dim, ff_hidden),
+                nn.ReLU(),
+                nn.Linear(ff_hidden, embed_dim)
+            )
+            self.ln1 = nn.LayerNorm(embed_dim)  # Layer norm after attention
+            self.ln2 = nn.LayerNorm(embed_dim)  # Layer norm after feedforward
+            self.out = nn.Linear(embed_dim, vocab_size)  # Final linear layer to predict vocab logits
+
+        def forward(self, x):
+            x = self.embed(x)  # Convert tokens to embeddings
+            x = self.pos_enc(x)  # Add position encoding
+            attn_out, _ = self.attn(x, x, x)  # Self-attention
+            x = self.ln1(x + attn_out)  # Residual + norm
+            ff_out = self.ff(x)  # Feedforward block
+            x = self.ln2(x + ff_out)  # Residual + norm
+            logits = self.out(x)  # Final output logits
+            return logits
+
+    # ====== Dummy Dataset ======
+    text = """ 
+    hello world! this is a tiny transformer demo. hello world the next character after wor is l followed by d. hello world.
+    we are training it to learn character patterns like words, spaces, and punctuation.
+    with more epochs and data, it can generate more meaningful text.
+    """
+
+    tokens = simple_tokenize(text)  # Convert full text into token list
+    data = []
+    for i in range(len(tokens) - context_len - 1):  # Slide over text to generate (input, target) sequences
+        sequence = []
+        for j in range(context_len + 1):
+            sequence.append(tokens[i + j])
+        data.append(sequence)
+
+    # Randomly sample a training batch
+    def get_batch():
+        batch = random.sample(data, batch_size)  # Select random sequences
+        inputs = []
+        targets = []
+        for sequence in batch:
+            input_seq = []
+            target_seq = []
+            for i in range(context_len):
+                input_seq.append(sequence[i])  # Input tokens
+                target_seq.append(sequence[i + 1])  # Next tokens (targets)
+            inputs.append(input_seq)
+            targets.append(target_seq)
+        return torch.tensor(inputs), torch.tensor(targets)  # Return as tensors
+
+    # ====== Training ======
+    model = SimpleTransformerBlock()  # Initialize model
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)  # Adam optimizer
+    loss_fn = nn.CrossEntropyLoss()  # Standard classification loss
+
+    print("Training started...")
+    for epoch in range(epochs):
+        model.train()
+        inputs, targets = get_batch()  # Sample a batch
+        logits = model(inputs)  # Forward pass
+        logits = logits.view(-1, vocab_size)  # Flatten logits to 2D
+        targets = targets.view(-1)  # Flatten targets
+
+        loss = loss_fn(logits, targets)  # Compute cross-entropy loss
+
+        optimizer.zero_grad()  # Reset gradients
+        loss.backward()  # Backpropagate
+        optimizer.step()  # Update weights
+
+        if epoch % 25 == 0 or epoch == epochs - 1:
+            print("Epoch {:03d} | Loss: {:.4f}".format(epoch, loss.item()))  # Periodic logging
+
+    # ====== Sampling After Training ======
+    def sample(model, prompt, length=100):
+        model.eval()
+        token_ids = simple_tokenize(prompt)  # Convert prompt to token list
+
+        if len(token_ids) > context_len:
+            token_ids = token_ids[-context_len:]  # Keep only latest context_len tokens
+        elif len(token_ids) < context_len:
+            padding = [0] * (context_len - len(token_ids))  # Pad beginning with 0s if too short
+            new_token_ids = []
+            for p in padding:
+                new_token_ids.append(p)
+            for t in token_ids:
+                new_token_ids.append(t)
+            token_ids = new_token_ids
+
+        input_tensor = torch.tensor([token_ids], dtype=torch.long)  # Input tensor with shape (1, context_len)
+        output = prompt  # Start output string with the prompt
+
+        for step in range(length):  # Generate tokens one at a time
+            with torch.no_grad():
+                logits = model(input_tensor)  # Predict logits
+                probs = F.softmax(logits[0, -1], dim=-1)  # Take softmax of last token
+                next_token = torch.argmax(probs).item()  # Pick token with highest probability
+
+            output += inv_vocab.get(next_token, '?')  # Decode and append to output string
+
+            new_input = []  # Prepare next input by shifting window
+            for i in range(1, context_len):
+                new_input.append(input_tensor[0][i].item())
+            new_input.append(next_token)
+            input_tensor = torch.tensor([new_input], dtype=torch.long)  # Update input
+
+        return output  # Final generated text
+
+    # ====== Generate and Display Output ======
+    print("\n=== Sample Output ===")
+    print(sample(model, "world ", length=50))  # Try generating text starting from "world "
+
+</code></pre>
+</div>
+
+    <div class="nocollapse-content">
+        <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">References:</h3>
+        <ol id="references"></ol>
+    </div>
+
+ </div>
+ </main>
+
+    <script src="../../WEBSITE STYLING/script.js"></script>
+    <script src="../../WEBSITE STYLING/menu.js"></script>
+    <script src="../../WEBSITE STYLING/citations.js"></script>
+
+
+</body>
+</html>

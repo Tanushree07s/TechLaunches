@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Time!</title>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css"/> 
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css"/>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css"/>
+
+</head>
+<body>
+
+    <main>
+    <div class="main-content">
+
+    <h2 class="collapsible ">C++ and Blockchain</h2>
+    <div class="content">
+        <ul>
+            <li>C++ is utilized in blockchain development primarily for building the core infrastructure of a blockchain due to its performance, control, and maturity.</li>
+            <li><strong>Performance and Efficiency</strong></li>
+            <ul>
+                <li>Blockchain operations (like hashing, cryptography, and network communication) need to be fast and efficient.</li>
+                <li>C++ is a compiled language that produces highly optimized machine code.</li>
+                <li>This means blockchain programs written in C++ can run very quickly and handle lots of data without slowing down.</li>
+            </ul>
+            <li><strong>Low-Level Memory Control</strong></li>
+            <ul>
+                <li>C++ gives programmers fine control over memory management.</li>
+                <li>In blockchain, you often work with large amounts of data and need to manage memory carefully to avoid leaks or inefficiencies.</li>
+            </ul>
+        </ul>
+    </div>
+
+    <h2 class="collapsible ">OpenSSL</h2>
+    <div class="content">
+        <ul>
+            <li>In this project, we will be utilizing <strong>OpenSSL</strong>.</li>
+            <li>It is an open-source software library that provides tools and implementations for things like:</li>
+            <ul>
+                <li>Cryptography: Algorithms for encrypting, decrypting, signing, and verifying data.</li>
+                <li>Hash Functions: Includes cryptographic hash algorithms like SHA-256, SHA-1, MD5, etc.</li>
+            </ul>
+        </ul>
+    </div>
+
+    <h2 class="collapsible ">Instructions – Part 1:</h2>
+    <div class="content">
+        <ul>
+            <li>You'll work on two exciting projects: first, building your own blockchain, and then extending it into a cryptocurrency transaction platform!</li>
+            <span data-ref="ref80"></span>
+            <span data-ref="ref81"></span>
+            <li><strong>Project-1: Blockchain</strong></li>
+            <br/>
+            <li>It will be created using the OpenSSL library and will consist of:</li>
+            <ul>
+                <li>A <strong>sha256()</strong> function to calculate the SHA-256 hash of a string</li>
+                <li>A <strong>Block class</strong> with fields to store the block's: position, time stamp, data, previous hash and its hash.</li>
+                <li>A <strong></strong>formatTimeStamp() function to format the block's time stamp.</li>
+                <li>The Block class will also contain a method <strong><code>calculateHash()</code></strong> to calculate the current block's hash.</li>
+                <li>A <strong>Blockchain class</strong> with a chain field to store a vector of Blocks.</li>
+                <li>The Blockchain class will also contain a: <strong><code>createGenesisBlock()</code></strong> method to create the first block in the blockchain, <strong><code>getLatestBlock()</code></strong> method to get the most recent block added, and <strong><code>isChainValid()</code></strong> method to check the validity of the chain using a block's own and previous hash.</li>
+            </ul>
+            <br/>
+            <li>For both projects will be using the following methods from the <strong>vector library:</strong></li>
+            <ul>
+                <li><strong><code>push_back(): </code></strong>Adds an element to the end of a vector, and automatically increases the vector’s size by 1.</li>
+                <li><strong><code>back(): </code></strong>Returns a reference to the last element in the vector.</li>
+                <li><strong><code>size(): </code></strong>Returns number of elements currently in the vector</li>
+                <li><strong><code>clear(): </code></strong>Removes all elements from the vector.</li>
+            </ul>
+            <br/>
+            <li>The code for the sha256 and formatTimeStamp functions used by the blockchain have been given to you.</li>
+        </ul>
+    </div> 
+
+    <h2 class="collapsible">Blockchain Project Code Breakdown:</h2>
+    <div class="content">
+        <ul>
+            <li>Go ahead and copy the guidelines below into your IDE's workspace — let's get started!</li>
+        
+        <pre><code>
+#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+#include &lt;vector&gt;
+#include &lt;sstream&gt;
+#include &lt;openssl/sha.h&gt; // Install OpenSSL for SHA256
+
+using namespace std; // All names from <code>std</code> can be written now without <code>std::</code> before them
+
+// Function to calculate SHA-256 hash of a string
+
+string sha256(const string str) {
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+    SHA256((unsigned char*)str.c_str(), str.size(), hash);
+    stringstream ss;
+    for (int i = 0; i < SHA256_DIGEST_LENGTH; i++)
+        ss << hex << (int)hash[i];
+    return ss.str();
+}
+
+// Function to format a time_t into human-readable string
+
+string formatTimestamp(time_t rawTime) {
+    char buffer[80];
+    struct tm* timeInfo = localtime(&rawTime);
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeInfo);
+    return string(buffer);
+}
+
+// TO DO: Create a `Block` class with member variables: int index, time_t timestamp, std::string data, std::string prevHash, std::string hash.
+
+// TO DO: Implement the `Block` constructor `Block(int idx, const std::string& data, const std::string& prevHash)`
+//       - Parameters: index, block data, previous block's hash
+//       - Initializes all member variables, sets timestamp, calculates and stores the block's hash
+
+// TO DO: Implement `std::string calculateHash() const` method inside `Block`
+//       - No parameters
+//       - Returns the SHA-256 hash string computed from block's index, timestamp, data, and prevHash
+
+// TO DO: Create a `Blockchain` class with a private member `std::vector<Block> chain`.
+
+// TO DO: Implement `Blockchain()` constructor with no parameters
+//       - Initializes the chain by adding the genesis block
+
+// TO DO: Implement `Block createGenesisBlock() const`
+//       - No parameters
+//       - Returns the genesis block with index 0, fixed data, and prevHash "0"
+
+// TO DO: Implement `Block getLatestBlock() const`
+//       - No parameters
+//       - Returns the most recent block in the chain
+
+// TO DO: Implement `void addBlock(const std::string& data)`
+//       - Parameter: data for the new block
+//       - Creates a new block with incremented index and previous block's hash, then adds it to the chain
+
+// TO DO: Implement `bool isChainValid() const`
+//       - No parameters
+//       - Validates chain integrity by verifying hashes and previous hashes of all blocks
+//       - Returns true if valid, false otherwise
+
+// TO DO: Implement `void printChain() const`
+//       - No parameters
+//       - Prints all blocks' details: index, timestamp, data, prevHash, hash
+
+        </code></pre></ul>
+    </div>    
+
+    <h2 class="collapsible">Blockchain Project Solution:</h2>
+    <div class="content">
+       <ul><pre><code>
+#include <iostream>
+#include <ctime>
+#include <vector>
+#include <sstream>
+#include <openssl/sha.h> // Install OpenSSL for SHA256
+
+using namespace std; // All names from <code>std</code> can be written now without <code>std::</code> before them
+
+// Function to calculate SHA-256 hash of a string
+
+string sha256(const string str) {
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+    SHA256((unsigned char*)str.c_str(), str.size(), hash);
+    stringstream ss;
+    for (int i = 0; i < SHA256_DIGEST_LENGTH; i++)
+        ss << hex << (int)hash[i];
+    return ss.str();
+}
+
+// Function to format a time_t into human-readable string
+
+string formatTimestamp(time_t rawTime) {
+    char buffer[80];
+    struct tm* timeInfo = localtime(&rawTime);
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeInfo);
+    return string(buffer);
+}
+
+// Block structure
+
+class Block {
+public:
+    int index;
+    time_t timestamp;
+    string data;
+    string prevHash;
+    string hash;
+
+    Block(int idx, string data, string prevHash)
+        : index(idx), data(data), prevHash(prevHash) {
+        timestamp = time(nullptr);
+        hash = calculateHash();
+    }
+
+    string calculateHash() const {
+        stringstream ss;
+        ss << index << timestamp << data << prevHash;
+        return sha256(ss.str());
+    }
+};
+
+// Blockchain class
+
+class Blockchain {
+private:
+    vector<Block> chain;
+
+public:
+    Blockchain() {
+        chain.push_back(createGenesisBlock());
+    }
+
+    Block createGenesisBlock() {
+        return Block(0, "Genesis Block", "0");
+    }
+
+    Block getLatestBlock() const {
+        return chain.back();
+    }
+
+    void addBlock(string data) {
+        int newIndex = chain.size();
+        string prevHash = getLatestBlock().hash;
+        Block newBlock(newIndex, data, prevHash);
+        chain.push_back(newBlock);
+    }
+
+    bool isChainValid() {
+        for (size_t i = 1; i < chain.size(); ++i) {
+            const Block& curr = chain[i];
+            const Block& prev = chain[i - 1];
+
+            if (curr.hash != curr.calculateHash()) {
+                cout << "Invalid hash at block " << i << "\n";
+                return false;
+            }
+
+            if (curr.prevHash != prev.hash) {
+                cout << "Invalid previous hash link at block " << i << "\n";
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void printChain() {
+        for (const auto& block : chain) {
+            cout << "Index: " << block.index << "\n";
+            cout << "Timestamp: " << formatTimestamp(block.timestamp) << "\n";
+            cout << "Data: " << block.data << "\n";
+            cout << "Prev Hash: " << block.prevHash << "\n";
+            cout << "Hash: " << block.hash << "\n\n";
+        }
+    }
+};
+
+int main() {
+    Blockchain myBlockchain;
+
+    myBlockchain.addBlock("First block");
+    myBlockchain.addBlock("Second block");
+
+    myBlockchain.printChain();
+
+    cout << (myBlockchain.isChainValid() ? "Chain is valid" : "Chain is not valid") << "\n";
+
+    return 0;
+}
+
+            
+        </code></pre></ul>
+    </div>
+
+    <h2 class="collapsible">Instructions – Part 2:</h2>
+        <div class="content">
+            <ul>
+                <span data-ref="ref80"></span>
+                <span data-ref="ref81"></span>
+                <li><strong>Project 2: Transaction Platform</strong></li>
+                <br/>
+                <li>You will be modifying project 1 to create the platform that will contain: </li>
+                <ul>
+                    <li>A <strong>sha256()</strong> function to calculate the SHA-256 hash of a string.</li>
+                    <li>A <strong>Transaction class</strong> with fields to store the transaction's: sender, receiver, and amount of crypto.</li>
+                    <li>The Transaction class will also contain a method that will return a string doumenting a transaction <strong>(toString() method)</strong>.</li>
+                    <li>A <strong>Block class</strong> with fields to store the block's: position, time stamp, vector of transactions, previous hash and its hash. </li>
+                    <li>The Block class will also contain: a <strong>calculateHash()</strong> method to calculate the current block's hash and a <strong>printBlock()</strong> method to print the block's data.</li>
+                    <li>A <strong>Blockchain class</strong> with fields to store: a vector of confirmed blocks, a vector of pending transactions, a map of users mapped to their respective balances, and a block reward for mining the block.</li>
+                    <li>The Blockchain class will also contain a: <strong>createGenesisBlock() method, getLatestBlock() method, printChain() method, and isChainValid() method (like in Project - 1)</strong>. In addition, the class will have a <strong>minePendingTransactions() method</strong>  that turns unconfirmed transactions into a new block, adds it to the chain, and updates user balances as well as a <strong>getBalance() method</strong> to  check a user's current balance.</li>
+                </ul>
+                <br/>
+                <li>The code for the sha256 and formatTimeStamp functions used by the blockchain have been given to you</li>
+    
+
+            </ul>
+        </div>
+    
+    <h2 class="collapsible">Transaction Platform Project Code Breakdown :</h2>
+        <div class="content">
+        <ul>
+            <li>Go ahead and copy the guidelines below into your IDE's workspace — let's get started!</li>
+        
+  <pre><code>
+
+
+#include <iostream>
+#include <ctime>
+#include <vector>
+#include <sstream>
+#include <openssl/sha.h> // Install OpenSSL for SHA256
+
+using namespace std; // All names from std can be written now without std:: before them
+
+// Function to calculate SHA-256 hash of a string
+
+string sha256(const string str) {
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+    SHA256((unsigned char*)str.c_str(), str.size(), hash);
+    stringstream ss;
+    for (int i = 0; i < SHA256_DIGEST_LENGTH; i++)
+        ss << hex << (int)hash[i];
+    return ss.str();
+}
+
+// Function to format a time_t into human-readable string
+
+string formatTimestamp(time_t rawTime) {
+    char buffer[80];
+    struct tm* timeInfo = localtime(&rawTime);
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeInfo);
+    return string(buffer);
+}
+
+// TO DO: Create a `Transaction` class
+//       - Member variables: sender (string), receiver (string), amount (int)
+//       - Method: `string toString() const` to return "sender->receiver:amount"
+
+// TO DO: Create a `Block` class
+//       - Member variables: int index, time_t timestamp, vector<Transaction> transactions, string prevHash, string hash
+//       - Constructor: `Block(int idx, const vector<Transaction>& txs, string prev)`
+//         * Initializes index, transactions, prevHash
+//         * Sets timestamp to current time
+//         * Calculates and stores hash using `calculateHash()`
+//       - Method: `string calculateHash() const`
+//         * Concatenates index, timestamp, prevHash, and all transactions (use `toString()`)
+//         * Returns SHA-256 hash of this data
+//       - Method: `void printBlock() const`
+//         * Prints index, timestamp, all transactions, prevHash, and hash
+
+// TO DO: Create a `Blockchain` class
+//       - Private members:
+//         * vector<Block> chain
+//         * vector<Transaction> pendingTransactions
+//         * map<string, int> balances
+//         * int blockReward (set to a chosen value)
+//       - Constructor: `Blockchain()`
+//         * Initializes chain with genesis block
+//       - Method: `Block createGenesisBlock()`
+//         * Returns Block with index 0, one transaction from "system" to "miner1" (100 coins), prevHash "0"
+//         * Updates balances for "miner1"
+//       - Method: `Block getLatestBlock() const`
+//         * Returns last block in chain
+//       - Method: `void addTransaction(const string& from, const string& to, int amount)`
+//         * Checks balance (unless sender is "system")
+//         * Adds transaction to pendingTransactions if valid
+//       - Method: `void minePendingTransactions(const string& minerAddress)`
+//         * Adds mining reward transaction from "system" to miner
+//         * Creates new block with pending transactions and appends it to chain
+//         * Updates balances accordingly
+//         * Clears pendingTransactions
+//       - Method: `void printChain() const`
+//         * Calls `printBlock()` on each block in the chain
+//       - Method: `void getBalance(const string& user) const`
+//         * Prints user's current coin balance (0 if none found)
+//       - Method: `bool isChainValid() const`
+//         * Loops through chain to verify:
+//           - Current block's hash matches `calculateHash()`
+//           - Current block's prevHash matches previous block's hash
+//         * Returns true if valid, false otherwise
+
+
+    </code></pre></ul>
+    </div>
+
+        <h2 class="collapsible">Transaction Platform Project Solution :</h2>
+        <div class="content">
+        <ul>
+  <pre><code>
+#include <iostream>
+#include <vector>
+#include <ctime>
+#include <sstream>
+#include <map>
+#include <openssl/sha.h>
+
+using namespace std;
+
+// SHA-256 hash function
+
+string sha256(const string& str) {
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+    SHA256((const unsigned char*)str.c_str(), str.length(), hash);
+    stringstream ss;
+    for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i)
+        ss << hex << (int)hash[i];
+    return ss.str();
+}
+
+// Function to format a time_t into human-readable string
+
+string formatTimestamp(time_t rawTime) {
+    char buffer[80];
+    struct tm* timeInfo = localtime(&rawTime);
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", timeInfo);
+    return string(buffer);
+}
+
+// A transaction: who sent how much to whom
+
+class Transaction {
+private:
+    string sender;
+    string receiver;
+    int amount;
+public:
+    Transaction(const string& s, const string& r, int amnt)
+        : sender(s), receiver(r), amount(amt) {}
+
+    // Getter methods
+
+    string getSender() const { return sender; }
+    string getReceiver() const { return receiver; }
+    int getAmount() const { return amount; }
+
+    string toString() const {
+        return sender + "->" + receiver + ":" + to_string(amount);
+    }
+};
+
+// A block in the blockchain
+
+class Block {
+private:
+    int index;
+    time_t timestamp;
+    vector<Transaction> transactions;
+    string prevHash;
+    string hash;
+
+public:
+    Block(int idx, const vector<Transaction>& txs, string prev)
+        : index(idx), transactions(txs), prevHash(prev) {
+        timestamp = time(nullptr);
+        hash = calculateHash();
+    }
+
+    string calculateHash() const {
+        stringstream ss;
+        ss << index << timestamp << prevHash;
+        for (const auto& tx : transactions) {
+            ss << tx.toString();
+        }
+        return sha256(ss.str());
+    }
+
+    void printBlock() const {
+        cout << "Block #" << index << "\nTimestamp: " << timestamp << "\n";
+        for (const auto& tx : transactions) {
+            cout << "  Tx: " << tx.getSender() << " -> " << tx.getReceiver() << " (" << tx.getAmount() << " coins)\n";
+        }
+        cout << "Prev Hash: " << prevHash << "\nHash: " << hash << "\n\n";
+    }
+};
+
+// The blockchain itself
+
+class Blockchain {
+private:
+    vector<Block> chain;
+    vector<Transaction> pendingTransactions;
+    map<string, int> balances;
+    int blockReward = 10;
+
+public:
+    Blockchain() {
+        chain.push_back(createGenesisBlock());
+    }
+
+    Block createGenesisBlock() {
+        vector<Transaction> genesisTxs = { {"system", "miner1", 100} };
+        balances["miner1"] = 100;
+        return Block(0, genesisTxs, "0");
+    }
+
+    Block getLatestBlock() const {
+        return chain.back();
+    }
+
+    void addTransaction(const string& from, const string& to, int amount) {
+        if (from != "system" && balances[from] < amount) {
+            cout << "[!] Transaction failed: insufficient balance\n";
+            return;
+        }
+        pendingTransactions.push_back({ from, to, amount });
+    }
+
+    void minePendingTransactions(const string& minerAddress) {
+        pendingTransactions.push_back({ "system", minerAddress, blockReward });
+        Block newBlock(chain.size(), pendingTransactions, getLatestBlock().hash);
+        chain.push_back(newBlock);
+
+        // Update balances
+        for (auto& tx : pendingTransactions) {
+            if (tx.sender != "system")
+                balances[tx.sender] -= tx.amount;
+            balances[tx.receiver] += tx.amount;
+        }
+
+        pendingTransactions.clear();
+        cout << " Block mined and reward sent to " << minerAddress << "\n\n";
+    }
+
+    void printChain() const {
+        for (const auto& block : chain) {
+            block.printBlock();
+        }
+    }
+
+    void getBalance(const string& user) const {
+        auto it = balances.find(user);
+        cout << user << " has " << (it != balances.end() ? it->second : 0) << " coins.\n";
+    }
+
+    bool isChainValid() const {
+        for (size_t i = 1; i < chain.size(); ++i) {
+            const Block& curr = chain[i];
+            const Block& prev = chain[i - 1];
+
+            if (curr.hash != curr.calculateHash()) {
+                cout << "Hash mismatch at block " << curr.index << "\n";
+                return false;
+            }
+
+            if (curr.prevHash != prev.hash) {
+                cout << "Link mismatch at block " << curr.index << "\n";
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+int main() {
+    Blockchain coin;
+
+    coin.getBalance("miner1");
+
+    coin.addTransaction("miner1", "A", 30);
+    coin.addTransaction("Alice", "B", 20); // Should fail (Alice has 0)
+
+    coin.minePendingTransactions("miner1");
+
+    coin.addTransaction("miner1", "A", 30);
+    coin.minePendingTransactions("miner1");
+
+    coin.getBalance("miner1");
+    coin.getBalance("A");
+    coin.getBalance("B");
+
+    coin.addTransaction("A", "B", 10);
+    coin.minePendingTransactions("miner1");
+
+    coin.getBalance("");
+
+    cout << "\n Blockchain:\n";
+    coin.printChain();
+
+    cout << "\n Chain valid? " << (coin.isChainValid() ? "Yes" : "No") << "\n";
+
+    return 0;
+}
+
+  </code></pre></ul>
+  </div>
+
+          <div class="nocollapse-content">
+            <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">References:</h3>
+            <ol id="references"></ol>
+          </div>
+
+    </div>
+    </main>
+
+  
+    
+    <script src="../../WEBSITE STYLING/script.js"></script>
+    <script src="../../WEBSITE STYLING/menu.js"></script>
+    <script src="../../WEBSITE STYLING/citations.js"></script>
+
+</body>
+</html>

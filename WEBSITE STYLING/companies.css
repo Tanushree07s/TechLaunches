@@ -1,0 +1,48 @@
+
+
+.logo-header {
+  height: 60px;       /* or 40–60px depending on what looks good to you */
+  max-width: 50%;
+  padding: 0;         /* remove extra left padding */
+}
+
+.crypto-logo {
+    padding-left:30%;
+
+}
+
+/* ===========================
+  SPACING BW 2 LOGOS
+=========================== */
+
+.logos-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.spaceb {
+  position: absolute;
+  right: 9%; /* 9% from right edge of h2 */
+}
+
+/* ===========================
+  MEDIA QUERIES
+=========================== */
+
+@media (max-width: 600px) {
+  /* Logo already responsive — no change needed */
+  .logo-header {
+    height: 50px;
+  }
+
+
+ @container (min-width: 400px) {
+    .spaceb {
+        gap: 8cqw; /* 8% of container width */
+    }
+}
+
+
+}
+

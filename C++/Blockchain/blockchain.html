@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css" />
+    <title>
+      Blockchain Technology
+    </title>
+  </head>
+  
+  <body>
+    <main>
+      <div class="main-content">
+        <h2 class="collapsible ">
+          What Is a Blockchain ?
+        </h2>
+        <div class="content">
+          <ul>
+            <span data-ref="ref70">
+            </span>
+            <li>
+              Blockchain is a type of
+              <span class="tooltip">
+                <strong class="tooltipstrong">
+                  distributed ledger technology (DLT)
+                </strong>
+                <span class="tooltiptext">
+                  It records transactions or data across a network of computers (nodes),
+                  rather than relying on a central server.
+                </span>
+              </span>
+            </li>
+            <li>
+              All participants hold a copy of the digital ledger.
+            </li>
+            <li>
+              Once added, data is immutable—it cannot be changed or deleted.
+            </li>
+          </ul>
+        </div>
+        <h2 class="collapsible">
+          Blockchains & Smart Contracts
+        </h2>
+        <div class="content">
+          <ul>
+            <li>
+              <strong>
+                Smart Contracts
+              </strong>
+            </li>
+            <ul>
+              <span data-ref="ref71">
+              </span>
+              <li>
+                Smart contracts are self-executing digital contracts stored on a blockchain.
+              </li>
+              <li>
+                A smart contract is coded with predefined "if-then" rules and deployed
+                to the blockchain, becoming public, immutable, and ready to respond.
+              </li>
+              <li>
+                A user initiates a transaction (e.g., sends payment), which the smart
+                contract continuously watches for on the blockchain.
+              </li>
+              <li>
+                If the contract’s conditions are met, it auto-executes the specified action
+                (e.g., sends an asset). If not, it remains inactive.
+              </li>
+              <li>
+                All interactions and outcomes are permanently recorded on the blockchain,
+                allowing anyone to verify the process without relying on a third party.
+              </li>
+            </ul>
+            <br/>
+            <li>
+              Based on the presence of smart contracts there are
+              <strong>
+                programmable and non-programmable blockchains
+              </strong>
+              .
+            </li>
+            <ol>
+              <span data-ref="ref72">
+              </span>
+              <br/>
+              <li>
+                <strong>
+                  Programmable Blockchains
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  Contains smart contracts and an execution enviroment like Ethereum Virtual
+                  Machine (EVM) or WebAssembly (Wasm) to run the contracts.
+                </li>
+                <li>
+                  Support development of Decentralized Applications (dApps) such as in
+                  <a href="https://www.investopedia.com/decentralized-finance-defi-5113835#:~:text=Decentralized%20finance%20(DeFi)%20is%20an,transact%20directly%20with%20each%20other.">
+                    <strong>
+                      DeFi
+                    </strong>
+                  </a>
+                  apps.
+                </li>
+                <li>
+                  Ethereum, Cardano, Tron, NEO
+                </li>
+              </ul>
+              <li>
+                <strong>
+                  Non-Programmable Blockchains
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  Focus on tasks such as securing transactions and data storage.
+                </li>
+                <li>
+                  They use simpler logic and are not built for decentralized apps or automated
+                  agreements.
+                </li>
+                <li>
+                  E.g) Bitcoin, Litecoin, Dogecoin, Monero
+                </li>
+              </ul>
+            </ol>
+          </ul>
+        </div>
+        <h2 class="collapsible">
+          Blockchain Structure & Public Key Cryptography
+        </h2>
+        <div class="content">
+          <ul>
+            <span data-ref="ref70">
+            </span>
+            <li>
+              <strong>
+                Structure of a Blockchain
+              </strong>
+            </li>
+            <ul style="padding-left: 20px;">
+              <li>
+                The data is stored in blocks
+              </li>
+              <li>
+                Each block contains:
+              </li>
+              <ol type="a" style="padding-left: 20px">
+                <li>
+                  <strong>
+                    A List of Transactions
+                  </strong>
+                </li>
+                <ul>
+                  <li>
+                    Ensures everyone agrees on who did what when.
+                  </li>
+                </ul>
+                <li>
+                  <strong>
+                    A Timestamp
+                  </strong>
+                </li>
+                <ul>
+                  <li>
+                    The exact time and date when the block was created or added to the chain.
+                  </li>
+                  <li>
+                    Helps maintain chronological order of the blocks.
+                  </li>
+                </ul>
+                <li>
+                  <strong>
+                    Hash Code
+                  </strong>
+                </li>
+                <ul>
+                  <li>
+                    It represents the block by a unique string of letters and numbers.
+                  </li>
+                  <li>
+                    It is generated by running the block data through a hash function.
+                  </li>
+                  <li>
+                    Even a tiny change in the block's data will create a completely different
+                    hash.
+                  </li>
+                  <li>
+                    Hence, it helps detect tampering, making the block content verifiable
+                    and secure.
+                  </li>
+                </ul>
+                <li>
+                  <strong>
+                    Hash Code of Previous Block
+                  </strong>
+                </li>
+                <ul>
+                  <li>
+                    Links blocks together in order, forming a blockchain. This helps establish
+                    the exact order of transactions.
+                  </li>
+                  <li>
+                    Ensures that the history of data is
+                    <span class="tooltip">
+                      <strong class="tooltipstrong">
+                        complete and unbroken
+                      </strong>
+                      <span class="tooltiptext">
+                        If one block is altered, all subsequent blocks must also be modified to
+                        maintain consistent hash codes in the blockchain.
+                      </span>
+                    </span>
+                    — no one can remove or insert a fake block.
+                  </li>
+                </ul>
+              </ol>
+            </ul>
+            <li>
+              <strong>
+                Public Key Cryptography
+              </strong>
+            </li>
+            <ul style="padding-left:20px">
+              <li>
+                It is used to secure transactions and data on the blockchain using 2 keys:
+              </li>
+              <ol type="a">
+                <li>
+                  <strong>
+                    Public Key:
+                  </strong>
+                  Serves as an address for receiving cryptocurrency or data, and allows
+                  others to send funds or data to the correct address.
+                </li>
+                <li>
+                  <strong>
+                    Private Key:
+                  </strong>
+                  A confidential key that grants control over digital assets. The private
+                  key holder can authorize transactions, thereby providing security and verifying
+                  ownership.
+                </li>
+              </ol>
+            </ul>
+          </ul>
+        </div>
+        <h2 class="collapsible ">
+          Transactions & Transaction Models
+        </h2>
+        <div class="content">
+          <ul>
+            <li>
+              <strong>
+                Core Data in a Cryptocurrency Transaction
+              </strong>
+            </li>
+            <ol>
+              <span data-ref="ref70">
+              </span>
+              <li>
+                <strong>
+                  Sender's Address:
+                </strong>
+                The wallet address of the person sending the crypto (derived from their
+                public key).
+              </li>
+              <li>
+                <strong>
+                  Recipient's Address:
+                </strong>
+                The wallet address of the person receiving the crypto ( derived from their
+                public key).
+              </li>
+              <li>
+                <strong>
+                  Amount:
+                </strong>
+                Amount of crypto being sent.
+              </li>
+              <li>
+                <strong>
+                  Digital Signature:
+                </strong>
+                A
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    cryptographic signature made
+                  </strong>
+                  <span class="tooltiptext">
+                    The private key and transaction data is run through a digital signature
+                    algorithm (like Elliptic Curve Digital Signature Algorithm) to produce
+                    the signature.
+                  </span>
+                </span>
+                with the sender's private key, proving they authorized the transaction.
+              </li>
+              <li>
+                <strong>
+                  Timestamp:
+                </strong>
+                The time the transaction was created.
+              </li>
+              <li>
+                <strong>
+                  Transaction Fee:
+                </strong>
+                An optional (but often required) fee paid to miners or validators to process
+                the transaction.
+              </li>
+              <li>
+                <strong>
+                  Cryptographic Nonce (in some blockchains):
+                </strong>
+                A random or pseudo random number used in PoW blockchains (discussed later)
+                to solve cryptographic puzzles. It is also used in some PoS networks (discussed
+                later) to add randomness to the system and ensure it remains fair, unpredictable,
+                and secure.
+              </li>
+            </ol>
+            <li>
+              A transaction is formatted using a
+              <span class="tooltip">
+                <strong class="tooltipstrong">
+                  blockchain protocol
+                </strong>
+                <span class="tooltiptext">
+                  A blockchain protocol refers to the rules and structure that define how
+                  a particular blockchain works — including how transactions are created,
+                  verified, stored, and added to blocks.
+                </span>
+              </span>
+              .
+            </li>
+            <br/>
+            <li>
+              <strong>
+                Transaction Models
+              </strong>
+              : They define how a blockchains structure and processe transactions between
+              users.
+            </li>
+            <li>
+              It determines:
+            </li>
+            <ul>
+              <li>
+                How balances are tracked
+              </li>
+              <li>
+                How funds are transferred
+              </li>
+              <li>
+                How transaction history is recorded and verified
+              </li>
+            </ul>
+            <ol>
+              <span data-ref="ref73">
+              </span>
+              <li>
+                <strong>
+                  Unspent Transaction Output (UTXO) Model
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  UTXOs It represent chunks of cryptocurrency that can be spent in future
+                  transactions.
+                </li>
+                <li>
+                  Users utilizing this model will own a collection of UTXOs, which together
+                  determine their total balance.
+                </li>
+                <li>
+                  A transaction in this system has:
+                </li>
+                <ul>
+                  <li>
+                    One or more inputs (UTXOs being spent).
+                  </li>
+                  <li>
+                    One or more outputs (new UTXOs created).
+                  </li>
+                  <li>
+                    If the total value of input UTXOs is more than the required amount, change
+                    is sent back to the sender as a new UTXO.
+                  </li>
+                  <li>
+                    <strong>
+                      For example:
+                    </strong>
+                    If you have $10 and $5 UTXOs and want to buy something worth $12, you
+                    must use both UTXOs (since they can't be split). You'll spend the $10 and
+                    $5, and receive a new $3 UTXO as change. After the transaction, you're
+                    left with only a $3 UTXO.
+                  </li>
+                </ul>
+                <li>
+                  Once a UTXO is used as an input in a transaction, it is considered spent
+                  and cannot be reused.
+                </li>
+                <li>
+                  <strong>
+                    Used by:
+                  </strong>
+                  Bitcoin, Litecoin, Dogecoin
+                </li>
+              </ul>
+              <li>
+                <strong>
+                  Account-Based Model
+                </strong>
+              </li>
+              <ul>
+                <li>
+                  In this model, each user has an account that holds a balance, similar
+                  to a traditional bank account.
+                </li>
+                <li>
+                  The account keeps track of: current balance,
+                  <span class="tooltip">
+                    <strong class="tooltipstrong">
+                      a nonce
+                    </strong>
+                    <span class="tooltiptext">
+                      It represents the number of transactions an account has sent. The nonce
+                      helps prevent replay attacks—where someone tries to resend an old transaction—by
+                      ensuring each transaction has a unique, incrementing number. If a duplicated
+                      transaction uses an outdated nonce, the network rejects it.
+                    </span>
+                  </span>
+                  , other
+                  <span class="tooltip">
+                    <strong class="tooltipstrong">
+                      metadata
+                    </strong>
+                    <span class="tooltiptext">
+                      such as a smart contract’s code (which defines its behavior) and the data
+                      it stores to keep track of information.
+                    </span>
+                  </span>
+                  .
+                </li>
+                <li>
+                  A transaction in this model includes the sender's and receiver's addresses,
+                  the amount to be transferred, a signature proving the sender’s authority,
+                  and a nonce to ensure uniqueness.
+                </li>
+                <li>
+                  When a transaction is executed:
+                </li>
+                <ul>
+                  <li>
+                    The sender's balance is reduced by the amount (plus fees, if any).
+                  </li>
+                  <li>
+                    The receiver’s balance is increased by the amount.
+                  </li>
+                </ul>
+                <li>
+                  Unlike UTXOs, this model does not involve selecting or creating outputs.
+                  The state (account balances) is simply updated.
+                </li>
+                <li>
+                  <strong>
+                    Used by:
+                  </strong>
+                  Ethereum, Solana, Binance Smart Chain
+                </li>
+              </ul>
+            </ol>
+          </ul>
+        </div>
+        <h2 class="collapsible ">
+          Adding a Transaction to a Blockchain (Part 1)
+        </h2>
+        <div class="content">
+          <ul>
+            <span data-ref="ref70">
+            </span>
+            <li>
+              <strong>
+                Transaction Creation:
+              </strong>
+              A transaction is initiated in a crypto wallet with the sender’s address,
+              recipient’s address, and the amount to send.
+            </li>
+            <li>
+              <strong>
+                Authorization:
+              </strong>
+              The sender signs the transaction with their private key, proving ownership
+              and allowing the transfer to the recipient's public address.
+            </li>
+            <li>
+              <strong>
+                Formatting:
+              </strong>
+              The transaction is structured according to the blockchain’s model — e.g.,
+              UTXO for Bitcoin, account-based for Ethereum.
+            </li>
+            <li>
+              <strong>
+                Distribution to the
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    Nodes
+                  </strong>
+                  <span class="tooltiptext">
+                    Individual devices that participate in the blockchain network.
+                  </span>
+                </span>
+                :
+              </strong>
+            </li>
+            <ul>
+              <li>
+                The client software sends the signed transaction to a
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    local node
+                  </strong>
+                  <span class="tooltiptext">
+                    The nearest or directly connected node.
+                  </span>
+                </span>
+                . This node is like an entry point into the blockchain network.
+              </li>
+              <li>
+                This is followed by a peer-to-peer propagation of the transaction between
+                connected nodes.
+              </li>
+              <li>
+                Nodes that receive the transaction place it into their
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    memory pool (mempool)
+                  </strong>
+                  <span class="tooltiptext">
+                    A waiting area for unconfirmed transactions
+                  </span>
+                </span>
+                after the they pass basic checks:
+              </li>
+              <ol>
+                <li>
+                  Is the signature valid?
+                </li>
+                <li>
+                  Does the sender have enough balance?
+                </li>
+                <li>
+                  Does it follow all protocol rules (e.g., size limits in Bitcoin)?
+                </li>
+              </ol>
+              <li>
+                Invalid or malformed transactions are discarded
+              </li>
+              <li>
+                The receiver’s wallet software is connected to its own set of blockchain
+                nodes. When one of these nodes receives the transaction from the peer-to-peer
+                network, it verifies the details and notifies the user of an
+                <strong>
+                  incoming transaction with 0 confirmations
+                </strong>
+                (meaning it has not yet been included in a block — confirmations explained
+                in
+                <strong>
+                  block creation
+                </strong>
+                ).
+              </li>
+            </ul>
+            <li>
+              <strong>
+                Redundancy and Network Consistency
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Because the network is decentralized, each node maintains its own mempool.
+              </li>
+              <li>
+                Over time, as the transaction spreads, most nodes will have a copy of
+                it.
+              </li>
+              <li>
+                This redundancy ensures the transaction is not lost even if some nodes
+                go offline.
+              </li>
+            </ul>
+          </ul>
+        </div>
+        <h2 class="collapsible ">
+          Adding a Transaction to a Blockchain (Part 2)
+        </h2>
+        <div class="content">
+          <ul>
+            <li>
+              <strong>
+                Block Creators
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Most blockchains have a special set of nodes to add new blocks to the
+                chain.
+              </li>
+              <li>
+                Based on how blocks are created and validated, blockchain networks are
+                broadly classified into two types:
+                <strong>
+                  Proof of Work (PoW)
+                </strong>
+                and
+                <strong>
+                  Proof of Stake (PoS)
+                </strong>
+                systems.
+              </li>
+            </ul>
+          </ul>
+          <ol>
+            <span data-ref="ref74">
+            </span>
+            <span data-ref="ref75">
+            </span>
+            <li>
+              <strong>
+                Proof of Work:
+              </strong>
+              (Used by e.g., Bitcoin, Litecoin)
+            </li>
+            <ul>
+              <li>
+                The special nodes are participants called
+                <strong>
+                  miners
+                </strong>
+                who compete to create new blocks.
+              </li>
+              <li>
+                They must solve difficult cryptographic puzzles (
+                <strong>
+                  hash puzzles
+                </strong>
+                ) that require powerful hardware and significant electricity.
+              </li>
+              <li>
+                The first miner to solve the puzzle gets the right to add the new block
+                to the blockchain.
+              </li>
+              <li>
+                When a miner successfully adds a block to the blockchain, he/she earns
+                two types of rewards:
+              </li>
+              <ol type="a">
+                <li>
+                  <strong>
+                    Block reward:
+                  </strong>
+                  This is a new cryptocurrency that is created by the network and given
+                  to the miner. This is how new coins are introduced into circulation.
+                </li>
+                <li>
+                  <strong>
+                    Transaction Fees:
+                  </strong>
+                  Every transaction in the block includes a small fee, paid by the users
+                  who made those transactions. The miner collects all these fees as part
+                  of their reward.
+                </li>
+              </ol>
+            </ul>
+            <br/>
+            <li>
+              <strong>
+                Proof-of-Stake
+              </strong>
+              (Used by e.g., Ethereum 2.0, Cardano):
+            </li>
+            <ul>
+              <li>
+                A user who locks up (freezes) a certain amount of cryptocurrency as stake
+                in the blockchain network to show commitment and qualify to participate
+                in maintaining the network is a
+                <strong>
+                  validator
+                </strong>
+                .
+              </li>
+              <li>
+                Energy consumption here is much lower than in PoW, since there's no need
+                for solving energy-intensive puzzles.
+              </li>
+              <li>
+                These metworks are typically categorized into two types: those that assign
+                validators two distinct roles, and those that assign only a single role.
+              </li>
+              <li>
+                <strong>
+                  Networks with Block Proposers and Attesters
+                </strong>
+              </li>
+              <ul style="padding-left: 30px">
+                <li>
+                  These networks separate the role of proposing and attesting a block for
+                  validators. A
+                  <strong>
+                    proposer
+                  </strong>
+                  creates the block, while a
+                  <strong>
+                    committee of attesters
+                  </strong>
+                  verifies and finalizes it.
+                </li>
+                <li>
+                  <strong>
+                    Selection Method: Stake-Based + Cryptographic Randomness
+                  </strong>
+                </li>
+                <ul style="padding-left: 25px">
+                  <li>
+                    Validators stake a minimum amount of the native token.
+                  </li>
+                  <li>
+                    At every time unit
+                    <strong>
+                      (slot)
+                    </strong>
+                    , one validator is randomly selected as the block proposer, and a committee
+                    of validators is randomly selected as attesters.
+                  </li>
+                  <li>
+                    Selection is often done using cryptographic tools like
+                    <strong>
+                      Verifiable Random Function (VRF)
+                    </strong>
+                    to generate randomness.
+                  </li>
+                  <li>
+                    In most stake-based systems (like Ethereum), the more you stake, the higher
+                    your probability of being selected as a proposer or attester.
+                  </li>
+                </ul>
+                <li>
+                  <strong>
+                    Rewards:
+                  </strong>
+                </li>
+                <ul style="padding-left: 25px">
+                  <li>
+                    <strong>
+                      Block Proposer:
+                    </strong>
+                    Receives newly minted coins + transaction tips/ entire transaction fee
+                    (depending on network). The proposer also gets a bonus in newly minted
+                    coins for including attestation votes from the committee (incentivizes
+                    inclusion of attestations in the block).
+                  </li>
+                  <li>
+                    <strong>
+                      Attesters:
+                    </strong>
+                    Earn newly minted tokens for timely and accurate attestations (i.e., voting
+                    on block validity). They an be
+                    <span class="tooltip">
+                      <strong class="tooltipstrong">
+                        slashed
+                      </strong>
+                      <span class="tooltiptext">
+                        Lose a portion of their staked tokens
+                      </span>
+                    </span>
+                    for dishonest behavior.
+                  </li>
+                </ul>
+              </ul>
+              <li>
+                <strong>
+                  Networks with No Seperate Attesters
+                </strong>
+              </li>
+              <ul style="padding-left: 30px">
+                <li>
+                  Validators take care of both proposing and validating blocks — no second
+                  group of attesters is used.
+                </li>
+                <li>
+                  This network includes
+                  <strong>
+                    delegators:
+                  </strong>
+                  They are token holders who don’t run validator nodes themselves but stake
+                  their tokens by assigning (delegating) them to trusted validators, helping
+                  secure the network and earning a share of the rewards.
+                </li>
+                <li>
+                  <strong>
+                    Importance of delegators:
+                  </strong>
+                  Since one’s own stake might not be enough to become an active validator,
+                  delegators are needed to vote/stake for a node.
+                </li>
+                <li>
+                  <strong>
+                    Selection Methods:
+                  </strong>
+                </li>
+                <ol type="a" style="padding-left: 25px">
+                  <li>
+                    <strong>
+                      Rotation/ Round-Robin Selection
+                    </strong>
+                  </li>
+                  <ul style="padding-left: 25px">
+                    <li>
+                      Token holders vote for top validators.
+                    </li>
+                    <li>
+                      The top 'N' validators (e.g., 21) take turns proposing and signing blocks.
+                    </li>
+                    <li>
+                      Every validator gets a fair share of turns over time.
+                    </li>
+                  </ul>
+                  <li>
+                    <strong>
+                      Delegated Voting
+                    </strong>
+                  </li>
+                  <ul style="padding-left: 25px">
+                    <li>
+                      Token holders delegate votes to validator candidates.
+                    </li>
+                    <li>
+                      Top-voted validators form the active set.
+                    </li>
+                    <li>
+                      These validators both propose and validate blocks (no attesters)
+                    </li>
+                  </ul>
+                </ol>
+                <li>
+                  <strong>
+                    Rewards:
+                  </strong>
+                </li>
+                <ul style="padding-left: 25px">
+                  <li>
+                    <strong>
+                      Validators:
+                    </strong>
+                    Earn newly minted coins + transaction tips/ entire transaction fee (depending
+                    on network). They often share rewards with delegators.
+                  </li>
+                  <li>
+                    <strong>
+                      Delegators:
+                    </strong>
+                    Get a portion of the validator's rewards (as per agreement or protocol
+                    rules).
+                  </li>
+                </ul>
+              </ul>
+            </ul>
+          </ol>
+        </div>
+        <h2 class="collapsible">
+          Adding a Transaction to a Blockchain (Part 3)
+        </h2>
+        <div class="content">
+          <ul>
+            <li>
+              <strong>
+                Forking:
+              </strong>
+            </li>
+            <span data-ref="ref76">
+            </span>
+            <ul>
+              <li>
+                A fork is when the blockchain splits into two separate chains (two different
+                versions of truth).
+              </li>
+              <li>
+                This can happen if two validators or miners create valid blocks at the
+                same time, or due to delays in how blocks are propagated across the network.
+              </li>
+              <li>
+                Some nodes may receive one block first, while others receive a different
+                one — leading to a temporary divergence.
+              </li>
+              <li>
+                The network continues building on both chains until one becomes longer.
+                At that point, the longest chain is accepted, and the shorter one is discarded.
+              </li>
+              <li>
+                To ensure their transaction stays on the final chain, recipients wait
+                for multiple confirmations (blocks built on top) before accepting it as
+                final.
+              </li>
+              <li>
+                Transactions in the discarded chain are returned to the mempool.
+              </li>
+              <li>
+                These can be included in future blocks — unless the coins were already
+                spent in a confirmed transaction on the main chain, in which case the original
+                transaction becomes invalid and is dropped.
+              </li>
+              <li>
+                Creators (miners/ validators) of the discarded blocks do not recieve their
+                rewards. This is because a reward is only considered final if a block becomes
+                part of the accepted main chain.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                Double Spending:
+              </strong>
+            </li>
+            <span data-ref="ref77">
+            </span>
+            <ul>
+              <li>
+                Double-spending occurs when someone attempts to use the same cryptocurrency
+                in two different transactions.
+              </li>
+              <li>
+                This leads to a fork in the blockchain.
+              </li>
+              <li>
+                The blockchain only allows one of these transactions to be confirmed.
+                The first one added to a block becomes valid, while the other is rejected.
+              </li>
+              <li>
+                To protect against this, recipients often wait for multiple confirmations
+                (i.e., blocks added on top of the one containing their transaction). This
+                makes it increasingly difficult to reverse or tamper with the confirmed
+                transaction.
+              </li>
+            </ul>
+            <span data-ref="ref70">
+            </span>
+            <li>
+              <strong>
+                Consensus and Block Addition
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Consensus is the process by which all nodes in a blockchain network agree
+                on the same version of the blockchain — especially about which transactions
+                and blocks are valid.
+              </li>
+              <li>
+                <strong>
+                  Consesus Algorithms
+                </strong>
+              </li>
+              <ol type="a">
+                <li>
+                  <strong>
+                    PoW:
+                  </strong>
+                  Miners compete to solve a puzzle. The longest valid chain (with the most
+                  work) is accepted by the network.
+                </li>
+                <li>
+                  <strong>
+                    PoS:
+                  </strong>
+                  A validator is chosen to propose a block, and others vote (attest); if
+                  enough agree, the block is added.
+                </li>
+                <li>
+                  <strong>
+                    BFT- Style Protocols (Byzantine Fault Tolerant) (Used by: Tendermint (Cosmos),
+                    Diem (Meta)):
+                  </strong>
+                  Nodes communicate and must reach a 2/3 majority (typically) agreement
+                  before finalizing a block, ensuring fast and final consensus.
+                </li>
+              </ol>
+              <li>
+                Once enough nodes agree, the block is added to the chain.
+              </li>
+              <li>
+                All nodes update their local copy of the blockchain.
+              </li>
+              <li>
+                Future blocks built on top of this one confirm its validity.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                Transaction Settlement
+              </strong>
+            </li>
+            <ul>
+              <li>
+                After the block is added, the transaction becomes part of the permanent
+                blockchain record. It cannot be changed or deleted.
+              </li>
+              <li>
+                The recipient officially receives the funds (or data is updated, in the
+                case of non-currency uses).
+              </li>
+            </ul>
+          </ul>
+        </div>
+        <h2 class="collapsible">
+          Multiple Chains in a Blockchain
+        </h2>
+        <div class="content">
+          <ul>
+            <span data-ref="ref78">
+            </span>
+            <li>
+              Apart from temporary forks, there are also intentionally designed multiple-chain
+              blockchain systems.
+            </li>
+            <li>
+              Two common ones are:
+            </li>
+          </ul>
+          <ol>
+            <li>
+              <strong>
+                Multi-Chain Blockchains
+              </strong>
+            </li>
+            <ul>
+              <li>
+                It is a setup in which multiple blockchains operate within the same ecosystem,
+                but each has its own ledger, rules, and purposes.
+              </li>
+              <li>
+                Each chain runs independently.
+              </li>
+              <li>
+                They may or may not talk to each other directly.
+              </li>
+              <li>
+                They are often used for
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    scalability
+                  </strong>
+                  <span class="tooltiptext">
+                    Splitting work across multiple chains so the system can handle more transactions
+                    at once without slowing down.
+                  </span>
+                </span>
+                or
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    specialization
+                  </strong>
+                  <span class="tooltiptext">
+                    Designing each chain for a specific job like payments & transfers, identity
+                    & authentication.
+                  </span>
+                </span>
+                .
+              </li>
+            </ul>
+            <li>
+              <strong>
+                Cross-Chain Blockchains
+              </strong>
+            </li>
+            <ul>
+              <li>
+                The ability for two different blockchains to interact and exchange information
+                or assets with each other.
+              </li>
+              <li>
+                They can communicate through
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    built-in protocols
+                  </strong>
+                  <span class="tooltiptext">
+                    Communication tools built directly into the blockchain system so chains
+                    can send data or tokens to each other safely, without needing extra services
+                    (like Cosmos’s IBC).
+                  </span>
+                </span>
+                ,
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    blockchain-bridges
+                  </strong>
+                  <span class="tooltiptext">
+                    Apps that connect separate blockchains, often by locking assets on one
+                    chain and creating equivalent tokens on another.
+                  </span>
+                </span>
+                , or
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    intermediary “hub” chains
+                  </strong>
+                  <span class="tooltiptext">
+                    A central blockchain that works like a post office, receiving messages
+                    or transactions from one chain and delivering them to another (like Polkadot’s
+                    Relay Chain).
+                  </span>
+                </span>
+                to share data or transfer assets.
+              </li>
+            </ul>
+          </ol>
+        </div>
+        <div class="nocollapse-content">
+          <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">
+            References:
+          </h3>
+          <ol id="references">
+          </ol>
+        </div>
+      </div>
+    </main>
+    <script src="../../WEBSITE STYLING/script.js">
+    </script>
+    <script src="../../WEBSITE STYLING/menu.js">
+    </script>
+    <script src="../../WEBSITE STYLING/citations.js">
+    </script>
+  </body>
+
+</html>

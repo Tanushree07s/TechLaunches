@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Advances in the Field of Neural Networks
+    </title>
+    <link rel="stylesheet" href="../../WEBSITE STYLING/companies.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/style.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/menu.css" />
+    <link rel="stylesheet" href="../../WEBSITE STYLING/citations.css" />
+  </head>
+  
+  <body>
+    <main>
+      <div class="main-content">
+        <h2 class="collapsible">
+          <img src="../../WEBSITE STYLING/Companies logos/google.png" alt="Google Logo"
+          class="logo-header">
+        </h2>
+        <div class="content">
+          <ol>
+            <span data-ref="ref10">
+            </span>
+            <li>
+              <strong>
+                Transformer
+              </strong>
+            </li>
+            <ul>
+              <li>
+                It is a type of
+                <span class="tooltip">
+                  <strong class="tooltipstrong">
+                    deep neural network
+                  </strong>
+                  <span class="tooltiptext">
+                    A neural network with many layers that can learn complex relationships
+                    in data.
+                  </span>
+                </span>
+                invented by Google in 2017.
+              </li>
+              <li>
+                It is primarily used for
+                <a href="https://en.wikipedia.org/wiki/Natural_language_processing">
+                  Natural Language Processing
+                </a>
+                tasks such as text generation, translation, summarization, and question
+                answering.
+              </li>
+              <li>
+                Before Transformers, models like RNNs (Recurrent Neural Networks) and
+                LSTMs (Long Short-Term Memory networks) processed input words one at a
+                time, in sequence. This made training slow and made it difficult to capture
+                long-range dependencies in sentences because early information would often
+                fade or be forgotten by the time later words were processed.
+              </li>
+              <li>
+                Transformers solved these limitations by introducing three key concepts:
+                <strong>
+                  Parallelism
+                </strong>
+                ,
+                <strong>
+                  Attention
+                </strong>
+                , and
+                <strong>
+                  Multi-Head Self-Attention
+                </strong>
+                .
+              </li>
+              <ul>
+                <li>
+                  <strong>
+                    Parallelism
+                  </strong>
+                  : Unlike RNNs, which process one word after another, Transformers process
+                  the entire input sentence at once using matrix operations. This allows
+                  training to be much faster.
+                </li>
+                <li>
+                  <strong>
+                    Attention
+                  </strong>
+                  : The model learns to focus on the most relevant words in a sentence,
+                  no matter where they appear. For example, in the sentence "The dog chased
+                  the cat because it was hungry," attention helps the model understand that
+                  "it" refers to "dog" rather than "cat".
+                </li>
+                <li>
+                  <strong>
+                    Multi-Head Self-Attention
+                  </strong>
+                  : Instead of applying attention just once, the Transformer uses multiple
+                  attention mechanisms in parallel (called
+                  <span class="tooltip">
+                    <strong class="tooltipstrong">
+                      heads
+                    </strong>
+                    <span class="tooltiptext">
+                      Each head captures different kinds of relationships between words—such
+                      as grammatical structure, meaning, or positional relationships—and combines
+                      them to form a richer understanding of the sentence.
+                    </span>
+                  </span>
+                  ).
+                </li>
+              </ul>
+              <li>
+                <strong>
+                  It is widely applied
+                </strong>
+                : Transformers have become the foundation of many state-of-the-art models
+                like BERT and GPT. They are also used in several tasks such as speech recognition
+                and code generation making them one of the most important architectures
+                in modern AI.
+              </li>
+            </ul>
+            </ul>
+            <span data-ref="ref11">
+            </span>
+            <li>
+              <strong>
+                TensorFlow
+              </strong>
+            </li>
+            <ul>
+              <li>
+                TensorFlow is an open-source software library developed by Google Brain
+                and released in 2015.
+              </li>
+              <li>
+                It is used to build and train deep neural networks for a wide variety
+                of tasks including image recognition and natural language processing
+              </li>
+              <li>
+                Before TensorFlow, building neural networks involved manually coding backpropagation,
+                managing weights, and optimizing training loops, which made development
+                slow and difficult to scale for production.
+              </li>
+              <span data-ref="ref7">
+              </span>
+              <li>
+                TensorFlow has helped significantly optimize the Neural Network training
+                process by:
+              </li>
+              <ul>
+                <li>
+                  <strong>
+                    Building a Computational Graph:
+                  </strong>
+                  It creates a complete graph of operations (like matrix multiplications,
+                  activations, etc.) and shows the flow of data in the network when defining
+                  a neural network, allowing it to visualize and optimize the entire training
+                  process before execution.
+                </li>
+                <li>
+                  <strong>
+                    Performing Graph-Level Optimizations:
+                  </strong>
+                  It improves training speed and efficiency by analyzing the computation
+                  graph and removing redundant operations, fusing compatible ones, and reordering
+                  steps.
+                </li>
+                <li>
+                  <strong>
+                    Automatic Differentiation:
+                  </strong>
+                  It automatically calculates gradients needed for backpropagation, eliminating
+                  the need for manual math and reducing the chance of errors.
+                </li>
+                <li>
+                  <strong>
+                    Batching and Pipelining:
+                  </strong>
+                  It speeds up training by automatically dividing data into batches and
+                  preloading the next batch during processing, ensuring efficient and continuous
+                  model training.
+                </li>
+              </ul>
+            </ul>
+          </ol>
+        </div>
+        <h2 class="collapsible">
+          <img src="../../WEBSITE STYLING/Companies logos/Meta.png" alt="Meta Logo"
+          class="logo-header">
+        </h2>
+        <div class="content">
+          <ul>
+            <span data-ref="ref12">
+            </span>
+            <li>
+              <strong>
+                PyTorch
+              </strong>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              PyTorch is an open-source
+              <a href="https://www.ibm.com/think/topics/deep-learning">
+                deep learning
+              </a>
+              framework developed by Meta's AI Research (FAIR -> Facebook AI Research)
+              and first released in 2016
+            </li>
+            <li>
+              It has made neural network development faster, more flexible, and more
+              intuitive using:
+            </li>
+            <ul>
+              <span data-ref="ref13">
+              </span>
+              <li>
+                <strong>
+                  Dynamic Computation Graph:
+                </strong>
+                Traditional frameworks like TensorFlow (before v2.0) used static graphs,
+                where you had to define the entire computation graph before running it.
+                PyTorch introduced dynamic computation graphs, meaning the graph is built
+                on-the-fly as operations are executed. This makes debugging, experimenting,
+                and modifying models much easier and more intuitive.
+              </li>
+              <il>
+                <strong>
+                  Automatic Differentiation (Autograd):
+                </strong>
+                PyTorch includes a powerful autograd engine that automatically computes
+                gradients for backpropagation.
+              </il>
+            </ul>
+          </ul>
+        </div>
+        <h2 class="collapsible logos-box">
+          <img src="../../WEBSITE STYLING/Companies logos/Microsoft.png" alt="Microsoft Logo"
+          class="logo-header ">
+          <img src="../../WEBSITE STYLING/Companies logos/Meta.png" alt="Meta Logo"
+          class="logo-header spaceb">
+        </h2>
+        <div class="content">
+          <ul>
+            <span data-ref="ref14">
+            </span>
+            <li>
+              <strong>
+                ONNX (Open Neural Network Exchange)
+              </strong>
+            </li>
+          </ul>
+          </ul>
+          <ul>
+            <li>
+              ONNX is an open format co-developed by Microsoft and Meta in 2017 to make
+              AI model deployment more efficient and flexible.
+            </li>
+            <li>
+              It allows models trained in one framework (like PyTorch or TensorFlow)
+              to be converted into a common format that can be run on various platforms
+              and hardware environments without rewriting the model code.
+            </li>
+            <span data-ref="ref15">
+            </span>
+            <li>
+              <strong>
+                Before ONNX
+              </strong>
+            </li>
+            <ul>
+              <li>
+                Developers had to train and deploy models in the same framework, which
+                often caused compatibility issues.
+              </li>
+              <li>
+                If a model was trained in PyTorch but the deployment environment only
+                supported TensorFlow, developers had to manually rewrite the model—a time-consuming
+                and error-prone process.
+              </li>
+              <li>
+                Deploying models to edge devices, web services, or across different hardware
+                accelerators (like GPUs, CPUs, or NPUs) was difficult and inconsistent
+                without a common model format.
+              </li>
+            </ul>
+            <span data-ref="ref16">
+            </span>
+            <li>
+              <strong>
+                ONNX improved neural network deployment by:
+              </strong>
+            </li>
+            <ul>
+              <li>
+                <strong>
+                  Framework Interoperability:
+                </strong>
+                Models can now be trained in one framework and deployed in another. For
+                example, a model trained in PyTorch can be exported to ONNX and deployed
+                using ONNX Runtime.
+              </li>
+              <span data-ref="ref17">
+              </span>
+              <li>
+                <strong>
+                  Hardware Flexibility:
+                </strong>
+                ONNX models can run on a variety of hardware platforms (CPUs, GPUs, FPGAs,
+                mobile chips) without modification, making deployment faster and more scalable.
+              </li>
+              <li>
+                <strong>
+                  Optimization for Speed:
+                </strong>
+                ONNX Runtime, developed by Microsoft, includes hardware-specific optimizations
+                that allow models to run faster and more efficiently, especially in production
+                settings.
+              </li>
+            </ul>
+            <li>
+              <strong>
+                Widely Supported:
+              </strong>
+              ONNX is now supported by major frameworks (PyTorch, TensorFlow, scikit-learn,
+              etc.) and hardware providers (Intel, NVIDIA, AMD), making it a standard
+              for cross-platform model deployment.
+            </li>
+          </ul>
+        </div>
+        <div class="nocollapse-content">
+          <h3 style="padding-left:20px; font-size: larger; text-decoration: underline;">
+            References:
+          </h3>
+          <ol id="references">
+          </ol>
+        </div>
+      </div>
+    </main>
+    <script src="../../WEBSITE STYLING/script.js">
+    </script>
+    <script src="../../WEBSITE STYLING/menu.js">
+    </script>
+    <script src="../../WEBSITE STYLING/citations.js">
+    </script>
+  </body>
+
+</html>
