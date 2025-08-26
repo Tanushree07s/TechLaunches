@@ -112,7 +112,6 @@ function setDarkMode() {
 function toggleCollapsible(header) {
     header.classList.toggle('active');
     
-    // Get the .collapsible-links element (next sibling)
     var content = header.nextElementSibling;
     var isExpanded = content.classList.contains('expanded');
 
@@ -132,21 +131,18 @@ function toggleCollapsible(header) {
         content.offsetHeight;
         content.style.height = content.scrollHeight + 'px';
         
-        // Reset to auto after transition for responsive behavior
         setTimeout(function() {
             if (content.classList.contains('expanded')) {
                 content.style.height = 'auto';
             }
-        }, 300); // Match your CSS transition duration
+        }, 300); 
     }
 }
 
 function initializeCollapsibleLinks() {
-    // Select all h3 elements with class 'menu-header'
     var headers = document.querySelectorAll('h3.menu-header');
     
     headers.forEach(function(header) {
-        // Add click event listener
         header.addEventListener('click', function() {
             toggleCollapsible(this);
         });
@@ -164,7 +160,6 @@ function initializeCollapsibleLinks() {
 function resetCollapsibleLinks() {
     var collapsibleContents = document.querySelectorAll('h3.menu-header + .collapsible-links');
     collapsibleContents.forEach(function(content) {
-        // Remove transitions temporarily for instant reset
         content.style.transition = 'none';
         content.style.height = '0px';
         content.classList.remove('expanded');
@@ -184,3 +179,4 @@ function resetCollapsibleLinks() {
 // Load menu when page loads
 
 document.addEventListener('DOMContentLoaded', loadMenu);
+
