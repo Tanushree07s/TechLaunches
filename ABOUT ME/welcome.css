@@ -280,7 +280,7 @@
     @media (max-width: 600px) {
       .feature-card{
         height:10px;
-        border-width:4p
+        border:3px solid rgba(91, 93, 224, 0.805);
       }
 
       .feature-description{
