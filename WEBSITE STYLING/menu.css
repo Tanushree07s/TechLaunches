@@ -183,7 +183,6 @@ h1.site-title {
 }
 .side-menu h3:last-of-type {/*select the last h3 inside the parent*/
     margin-bottom:10px;
-    -webkit-overflow-scrolling: touch;
 
 }
 
@@ -259,7 +258,11 @@ h1.site-title {
 /* Responsive design */
 @media (max-width: 600px) {
     .side-menu {
-        width: 280px;
+        height: 100vh;            /* fill full viewport height */
+        width: 280px;             
+        overflow-y: auto;         
+        -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+        box-sizing: border-box;
     }
     
     main {
