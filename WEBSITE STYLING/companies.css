@@ -36,24 +36,9 @@
   .logo-header {
     width:max-content;
   }
-      .spacer {
-  position: absolute;
-  right:3%;
-}
-}
-
-@media (max-width: 500px){
-    .spacer {
-  position: absolute;
-  right:5%;
-  width:70px;
-  height:50px;
-}
-
-.spacel{
-  width:95px;
-  height:47px;
-}
+  .spacer {
+    display:none;
+    }
 }
 
  @container (min-width: 400px) {
