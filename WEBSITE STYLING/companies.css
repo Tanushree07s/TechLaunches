@@ -39,6 +39,11 @@
   .spacer {
     display:none;
     }
+
+  .crypto-logo{
+    padding-left:5%;
+    padding-right:5%;
+  }
 }
 
  @container (min-width: 400px) {
