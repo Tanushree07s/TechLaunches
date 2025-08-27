@@ -1,7 +1,7 @@
 
 
 .logo-header {
-  height: 60px;       /* or 40–60px depending on what looks good to you */
+  height: 60px;       
   max-width: 50%;
   padding: 0;         /* remove extra left padding */
 }
@@ -21,9 +21,10 @@
   align-items: center;
 }
 
-.spaceb {
+.spacer {
   position: absolute;
   right: 9%; /* 9% from right edge of h2 */
+  font-size: larger;
 }
 
 /* ===========================
@@ -33,16 +34,34 @@
 @media (max-width: 600px) {
   /* Logo already responsive — no change needed */
   .logo-header {
-    height: 50px;
+    width:max-content;
   }
+      .spacer {
+  position: absolute;
+  right:3%;
+}
+}
 
+@media (max-width: 500px){
+    .spacer {
+  position: absolute;
+  right:5%;
+  width:70px;
+  height:50px;
+}
+
+.spacel{
+  width:95px;
+  height:47px;
+}
+}
 
  @container (min-width: 400px) {
-    .spaceb {
+    .spacer {
         gap: 8cqw; /* 8% of container width */
     }
 }
 
 
-}
+
 
