@@ -210,6 +210,8 @@ body a{
   .collapsible,.nocollapse-content  {
     font-size: 1rem;
     padding: 12px;
+    margin: 50px 0px;
+
   }
 
   .content{

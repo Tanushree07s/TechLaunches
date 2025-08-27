@@ -177,6 +177,10 @@ h1.site-title {
 
     
 }
+.side-menu{
+      margin-bottom:40px;
+
+}
 .side-menu .h3-first{
     margin-top:70px;
 }
@@ -268,7 +272,7 @@ h1.site-title {
     }
     
     h1.site-title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     h3,.h3-first{
