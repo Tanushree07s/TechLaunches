@@ -220,14 +220,13 @@ h1.site-title {
 /* ==================================
   COLLAPSIBLE LINKS ANIMATIONS
 ===================================== */  
-.collapsible-links{
-    height: 0;
-    overflow: hidden;
-    transition: height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
 
-.collapsible-links.expanded {
-    /* Height will be set dynamically via JavaScript */
+.collapsible-links{
+
+    display: none;             /* JS sets this */
+    overflow: hidden;          /* needed for smooth height animation */
+    max-height: 0;             /* collapsed */
+    transition: max-height 0.3s ease; /* smooth expand/collapse */
 }
 
 /* ===========================
@@ -257,13 +256,6 @@ h1.site-title {
 =========================== */
 /* Responsive design */
 @media (max-width: 600px) {
-    .side-menu {
-        height: 100vh;            /* fill full viewport height */
-        width: 280px;             
-        overflow-y: auto;         
-        -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
-        box-sizing: border-box;
-    }
     
     main {
         padding: 1rem;
@@ -278,10 +270,10 @@ h1.site-title {
     }
 
     h3,.h3-first{
-        font-size:16px;
+        font-size:18px;
     }
     .side-menu a {
-        font-size:15px;
+        font-size:18px;
     }
 }
 

@@ -205,7 +205,7 @@ body a{
 
     /* Headings scale down */
    h1, h2 {
-    font-size: 18px;
+    font-size: 30px;
   }
   .collapsible,.nocollapse-content  {
     font-size: 1rem;
