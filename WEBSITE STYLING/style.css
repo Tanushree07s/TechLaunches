@@ -203,14 +203,13 @@ body a{
 
 @media (max-width: 600px) {
 
-    /* Headings scale down */
    h1, h2 {
     font-size: 30px;
   }
 
   .collapsible,.nocollapse-content  {
-    font-size: 1rem;
-    padding: 12px;
+    font-size: 1.2rem;
+    padding: 10px;
     margin: 50px 0px;
 
   }
