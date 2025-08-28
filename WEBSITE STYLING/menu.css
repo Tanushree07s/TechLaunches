@@ -108,12 +108,10 @@ h1.site-title {
     width: 85%; /* Wider on mobile */
     height: 100vh;
     z-index: 1001;
-    padding-bottom:40px;
     background-color: var(--sidebar-bg);
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: left 0.3s ease;
     overflow-y: auto;
-    overflow-x:hidden;
 }
 
 
@@ -282,8 +280,7 @@ h1.site-title {
 
     .side-menu {
         width: 95%; /* Wider on mobile */
-        max-width: 400px;
-        padding-bottom:60px;
+        max-width: 500px;
     }
 
     .collapsible-links a {
