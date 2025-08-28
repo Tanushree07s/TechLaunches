@@ -105,19 +105,21 @@ h1.site-title {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 400px; /* Wider on mobile */
+    width: 400px; 
     height: 100vh;
     z-index: 1001;
+    padding-bottom:40px;
     background-color: var(--sidebar-bg);
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: left 0.3s ease;
     overflow-y: auto;
+    box-sizing: border-box;
+
 }
 
 
 .side-menu.open {
     left: 0;
-    padding-bottom:40px;
 }
 
 .side-menu a {
@@ -177,16 +179,18 @@ h1.site-title {
   color: var(--header-text);
   border-radius:5px;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-
-    
+  
 }
+
 .side-menu .h3-first{
     margin-top:70px;
 }
 .side-menu h3:last-of-type {/*select the last h3 inside the parent*/
     margin-bottom:10px;
+    padding-bottom:30px;
 
 }
+
 
 
 /* =================================================
@@ -215,8 +219,8 @@ h1.site-title {
   margin-top: 0;   /* remove the top child top margin gap */
 }
 
-.collapsible-links a:last-child {/*select the last child inside the parent element*/
-  margin-bottom: 10px;   /* remove the top child top margin gap */
+.side-menu a:last-child {/*select the last child inside the parent element*/
+  margin-bottom: 10px; 
 }
 
 /* ==================================
@@ -260,7 +264,7 @@ h1.site-title {
 @media (max-width: 700px) {
     
     main {
-        padding: 1rem;
+        padding: 2rem;
     }
     
     .navbar {
@@ -289,6 +293,11 @@ h1.site-title {
         overflow-wrap: break-word;
         line-height: 1.4;
     }
+
+    .side-menu h3:last-of-type + .collapsible-links a:last-child {
+    padding-bottom: 50px;
+}
+
 
 }
 

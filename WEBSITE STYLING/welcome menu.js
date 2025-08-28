@@ -1,5 +1,6 @@
 function loadMenu() {
     const menuHTML = `
+    
     <!-- Header -->
         <header class="navbar">
             <div class="header-left">
@@ -44,7 +45,7 @@ function loadMenu() {
                 <a  href="PYTHON/NLP/Major companies contributions.html">Advances in the Field</a>
             </div>  
 
-         <h3 class="menu-header" >Blockchain Technology</h3>
+         <h3 class="menu-header last-header" >Blockchain Technology</h3>
             <div class="collapsible-links">
                 <a  href="C++/Blockchain/blockchain.html">Guide to Blockchain Technology</a>
                 <a  href="C++/Blockchain/further mining and validation.html">Deeper Dive into Mining and Validation</a>
