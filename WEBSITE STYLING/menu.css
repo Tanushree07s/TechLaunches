@@ -102,47 +102,24 @@ h1.site-title {
 
 /* Side menu styles */
 .side-menu {
-    between each section
-margin-bottom on the last link - Adds space at the bottom of each expanded section
-Increased bottom padding on .side-menu - Adds general breathing room at the bottom of the entire menu
-Specific padding for the last section - Targets only the final "Blockchain Technology" section
-Try adding these styles and adjust the pixel values (20px, 30px, 40px, etc.) to get the exact spacing you prefer!
-
-
-
-
-
-/* Add spacing at the bottom of collapsible content */
-.collapsible-links {
-    display: none;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease;
-    margin-bottom: 20px; /* Space between sections */
-}
-
-/* Add padding to the last link in each section */
-.collapsible-links a:last-child {
-    margin-bottom: 15px; /* Extra space at bottom of each section */
-}
-
-/* Add bottom padding to the entire side menu */
-.side-menu {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 300px;
+    width: 85%; /* Wider on mobile */
     height: 100vh;
-    z-index: 1000;
-    padding-bottom: 40px; /* Increased bottom padding from 20px to 40px */
-    box-sizing: border-box;
-    overflow-y: auto;
-    overflow-x: hidden;
+    z-index: 1001;
+    padding-bottom:40px;
+    background-color: var(--sidebar-bg);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: left 0.3s ease;
+    overflow-y: auto;
+    overflow-x:hidden;
 }
+
 
 .side-menu.open {
     left: 0;
+    padding-bottom:40px;
 }
 
 .side-menu a {
@@ -189,24 +166,6 @@ Try adding these styles and adjust the pixel values (20px, 30px, 40px, etc.) to 
 /* ===========================
   COLLAPSIBLE LINKS h3s
 =========================== */    
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 300px;
-    height: 100vh;
-    z-index: 1000;
-    padding: 20px 0px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    overflow-x: hidden;
-    transition: left 0.3s ease;
-}
-
-.side-menu.open {
-    left: 0;
-}
 
 .side-menu .h3-first,.side-menu h3{
   display:flex;
@@ -333,7 +292,8 @@ Try adding these styles and adjust the pixel values (20px, 30px, 40px, etc.) to 
         overflow-wrap: break-word;
         line-height: 1.4;
     }
-        .collapsible-links a:last-child {
+
+    .collapsible-links a:last-child {
         margin-bottom: 20px; /* More space on mobile */
     }
 }
