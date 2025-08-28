@@ -105,7 +105,8 @@ h1.site-title {
     position: fixed;
     top: 0;
     left: -300px;
-    width: 300px;
+     width: 85%; /* Wider on mobile */
+
     height: 100vh;
     background-color: var(--sidebar-bg);
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -163,13 +164,31 @@ h1.site-title {
   COLLAPSIBLE LINKS h3s
 =========================== */    
 
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100vh;
+    z-index: 1000;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: left 0.3s ease;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
 .side-menu .h3-first,.side-menu h3{
   display:flex;
   cursor: pointer;
   margin-top: 40px;
   margin-bottom:0px;
   padding: 1rem;
-  overflow:auto;
+
   background:var(--h3-bg);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--header-text);
@@ -274,6 +293,18 @@ h1.site-title {
     }
     .side-menu a {
         font-size:18px;
+    }
+
+    .side-menu {
+        width: 85%; /* Wider on mobile */
+        max-width: 350px;
+    }
+
+    .collapsible-links a {
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.4;
     }
 }
 

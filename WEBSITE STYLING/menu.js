@@ -77,32 +77,32 @@ function initializeMenu() {
     menuToggle.addEventListener('click', () => {
         sideMenu.classList.add('open');
         overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+ 
     });
 
-    // Close menu
-    closeMenu.addEventListener('click', () => {
+    // Close menu function
+    const closeMenuFunction = () => {
         sideMenu.classList.remove('open');
         overlay.classList.remove('show');
+        // Restore body scroll
+        document.body.style.overflow = '';
         resetCollapsibleLinks();
-    });
+    };
 
-    // Close menu on overlay click
-    overlay.addEventListener('click', () => {
-        sideMenu.classList.remove('open');
-        overlay.classList.remove('show');
-        resetCollapsibleLinks();
-    });
+    // Close menu events
+    closeMenu.addEventListener('click', closeMenuFunction);
+    overlay.addEventListener('click', closeMenuFunction);
 
     // Close menu on escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            sideMenu.classList.remove('open');
-            overlay.classList.remove('show');
-            resetCollapsibleLinks();
+            closeMenuFunction();
         }
     });
 }
 
+//  dark mode 
 function setDarkMode() {
     document.documentElement.setAttribute("data-theme", "dark");
 }
@@ -152,6 +152,24 @@ function initializeCollapsibleLinks() {
       header.addEventListener("click", () => toggleCollapsible(header));
     }
   });
+}
+
+// Reset all collapsible links to closed state
+function resetCollapsibleLinks() {
+    const headers = document.querySelectorAll("h3.menu-header");
+    
+    headers.forEach(header => {
+        const content = header.nextElementSibling;
+        
+        if (content && content.classList.contains("collapsible-links")) {
+            // Remove active class from header
+            header.classList.remove("active");
+            
+            // Close the content immediately (no animation when resetting)
+            content.style.maxHeight = "0";
+            content.style.display = "none";
+        }
+    });
 }
 
 
