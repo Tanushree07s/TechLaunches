@@ -105,7 +105,7 @@ h1.site-title {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 85%; /* Wider on mobile */
+    width: 400px; /* Wider on mobile */
     height: 100vh;
     z-index: 1001;
     background-color: var(--sidebar-bg);
@@ -257,7 +257,7 @@ h1.site-title {
   MEDIA QUERIES
 =========================== */
 /* Responsive design */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     
     main {
         padding: 1rem;
