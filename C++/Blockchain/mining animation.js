@@ -47,7 +47,7 @@ function mine() {
 
         updateWallet(currentReward);
 
-        result.textContent = `✅ Block mined successfully! Reward: ${currentReward} coins`;
+        result.textContent = `Block mined successfully! Reward: ${currentReward} coins`;
         result.className = "highlight";
         document.getElementById("addBlockBtn").disabled = false;
     }

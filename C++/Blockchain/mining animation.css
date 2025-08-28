@@ -7,6 +7,10 @@
         border: 2px solid #0f0; padding: 20px; margin-bottom: 20px; 
     }
 
+    #blockContainer{
+        overflow: auto;
+    }
+
     .highlight {
          background: #0f0; color: black; font-weight: bold;
          }
