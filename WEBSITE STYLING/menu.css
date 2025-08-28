@@ -293,8 +293,5 @@ h1.site-title {
         line-height: 1.4;
     }
 
-    .collapsible-links a:last-child {
-        margin-bottom: 20px; /* More space on mobile */
-    }
 }
 
