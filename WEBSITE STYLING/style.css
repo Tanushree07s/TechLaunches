@@ -215,7 +215,7 @@ body a{
   }
 
   .content{
-    font-size: 14px;             /* Slightly smaller text on small screens */
+    font-size: 16px;             /* Slightly smaller text on small screens */
     padding: 15px;
     font-style: "Segoe UI", Arial, Helvetica, sans-serif;
     margin: 50px 0px;
