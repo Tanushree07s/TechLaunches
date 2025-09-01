@@ -118,7 +118,6 @@ body a{
   backdrop-filter: blur(10px);
 
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
 
   box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
