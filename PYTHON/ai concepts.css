@@ -1,0 +1,104 @@
+    body {
+      font-family: Arial, sans-serif;
+      background: #030b1f; 
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+      h1 {
+      margin-bottom: 50px;
+      font-size: 2rem;
+      text-align: center;
+      width:100%;
+      height:600px;
+      margin-top:0px;
+      padding-top:30px;
+      border-radius:10px;
+      background:#0b152d;
+      box-shadow: 10px 7px 7px rgba(0, 0, 0, 0.1);
+
+    }
+
+/* ====================================
+    CONNECTING LINES AND ANIMATIONS
+======================================= */
+    .flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    
+    /* Animated glowing dotted line */
+    .line {
+      width: 4px;             
+      height: 120px;          
+      border-left: 15px dotted #8271ee;
+      margin: -10px 0;
+      animation: glow 1.5s infinite ease-in-out;
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.3; filter: drop-shadow(0 0 2px #8271ee); }
+      50% { opacity: 1; filter: drop-shadow(0 0 2px #8271ee); }
+      100% { opacity: 0.3; filter: drop-shadow(0 0 2px #8271ee); }
+    }
+
+
+/* ====================================
+    TOPIC BUTTONS
+======================================= */
+    .tech-button {
+      padding: 20px 70px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      cursor: pointer;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      background:#4543a5;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease, background 0.3s ease;
+      margin: 40px 0; /* bigger spacing */
+    }
+
+    .tech-button:hover {
+      transform: translateY(-5px);
+      background: #4517b9;
+    }
+
+/* ====================================
+    MEDIA QUERIES
+======================================= */
+
+    @media (max-width: 600px) {
+        body {
+            height: auto; 
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            height: 60px;
+            border-radius:5px;
+        }
+
+        .tech-button {
+            padding: 15px 40px; 
+            font-size: 1.1rem;  
+            margin: 25px 0;     
+            width: 90%;         
+            max-width: 300px;  
+        }
+
+        .line {
+            width: 2px;         
+            height: 80px;       
+            border-left: 10px dotted #8271ee; 
+        }
+    }
