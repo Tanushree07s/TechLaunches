@@ -92,7 +92,6 @@
             padding: 15px 40px; 
             font-size: 1.1rem;  
             margin: 25px 0; 
-            margin-left:10px;    
             width: 90%;         
             max-width: 300px;  
         }
@@ -100,6 +99,7 @@
         .line {
             width: 2px;         
             height: 80px;       
-            border-left: 10px dotted #8271ee; 
+            border-left: 10px dotted #8271ee;
+            margin-right:13px; 
         }
     }
