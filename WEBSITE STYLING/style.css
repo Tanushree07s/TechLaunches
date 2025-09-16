@@ -236,3 +236,63 @@ body a{
 }
 }
 
+
+
+/* Large screens (desktops) */
+@media (min-width: 769px) and (max-width: 1200px) {
+    :root {
+        --container-max-width: 1000px;
+        --content-margin: 2rem;
+        --content-padding: 1.5rem;
+        --font-size-base: 1.1rem;
+        --font-size-heading: 2rem;
+    }
+}
+
+/* Extra large screens (large desktops, projectors) */
+@media (min-width: 1201px) and (max-width: 1920px) {
+    :root {
+        --container-max-width: 1200px;
+        --content-margin: 3rem;
+        --content-padding: 2rem;
+        --font-size-base: 1.2rem;
+        --font-size-heading: 2.25rem;
+    }
+}
+
+/* Ultra-wide and 4K screens */
+@media (min-width: 1921px) {
+    :root {
+        --container-max-width: 1400px;
+        --content-margin: 4rem;
+        --content-padding: 2.5rem;
+        --font-size-base: 1.3rem;
+        --font-size-heading: 2.5rem;
+    }
+    
+    /* Additional scaling for very large screens */
+    body {
+        font-size: 1.4rem;
+    }
+    
+    .collapsible {
+        font-size: 2.8rem;
+    }
+}
+
+/* High DPI displays (Retina, 4K) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Ensure crisp rendering on high-DPI displays */
+    .collapsible, .content, .nocollapse-content, .small-box {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+    :root {
+        --content-margin: 1rem;
+        --content-padding: 1rem;
+    }
+}
